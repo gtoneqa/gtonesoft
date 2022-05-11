@@ -49,11 +49,11 @@ public class EgovSampleServiceImpl extends EgovAbstractServiceImpl implements Eg
 
 	/** SampleDAO */
 	// TODO use ibatis
-	@Resource(name = "sampleDAO")
-	private SampleDAO sampleDAO;
+	//@Resource(name = "sampleDAO")
+	//private SampleDAO sampleDAO;
 	// TODO use mybatis
-	//  @Resource(name="sampleMapper")
-	//	private SampleMapper sampleDAO;
+	@Resource(name="sampleMapper")
+	private SampleMapper sampleDAO;
 
 	/** ID Generation */
 	@Resource(name = "egovIdGnrService")
