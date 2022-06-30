@@ -1,0 +1,26 @@
+insert into k_month_site_cust
+select %(batch_date)s as acq_dt,
+   IFTMS3005.YM as ym,
+   IFTMS3005.CUST_ID as cust_id,
+   IFTMS3005.CUST_CLS as cust_cls,
+   IFTMS3005.BIRTH_DT as birth_dt,
+   IFTMS3005.GENDER_CLS as gender_cls,
+   IFTMS3005.IDENTIFICATION_LEVEL as identification_level,
+   IFTMS3005.IDENTIFICATION_DT as identification_dt,
+   IFTMS3005.AU_ID as au_id,
+   IFTMS3005.CUST_PWD_UPD_DT as cust_pwd_upd_dt,
+   IFTMS3005.CUST_PWD_UPD_TM as cust_pwd_upd_tm,
+   IFTMS3005.PWD_INITIAL_CHANGE_CLS as pwd_initial_change_cls,
+   IFTMS3005.CUST_MAIL1_NOTICE_FLG as cust_mail1_notice_flg,
+   IFTMS3005.CUST_MAIL2_NOTICE_FLG as cust_mail2_notice_flg,
+   IFTMS3005.EZ_MAIL_NOTICE_FLG as ez_mail_notice_flg,
+   IFTMS3005.DELE_AU_SUBS_RK as dele_au_subs_rk,
+   IFTMS3005.APPROVAL_TICKET_ID as approval_ticket_id,
+   IFTMS3005.CUST_FIRST_REGIST_DT as cust_first_regist_dt,
+   IFTMS3005.ACTIVE_DT as active_dt,
+   IFTMS3005.INVALID_DT as invalid_dt,
+   IFTMS3005.INVALID_FLG as invalid_flg,
+   %(y)s as y,
+   %(m)s as m
+from IFTMS3005
+where IFTMS3005.dt = %(batch_date)s
