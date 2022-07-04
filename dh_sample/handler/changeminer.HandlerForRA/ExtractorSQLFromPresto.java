@@ -54,14 +54,12 @@ public class ExtractorSQLFromPresto extends HandlerForRA
     }
     
     /**
-    *  사전 작업에 대한 정의입니다.
     **/ 
     public int doAnalyzeStep(CMParserCommonData data, CM_SRC cm_src, TResult tresult) throws Exception {
         return RETURN_CONTINUE;
     }
 
    /**
-	*  사후 작업에 대한 정의입니다.
 	**/
     public int addAnalyzeStep(CMParserCommonData data, CM_SRC cm_src, TResult tresult) throws Exception {
     	TObj root_obj = tresult.getTObjList()[0];
