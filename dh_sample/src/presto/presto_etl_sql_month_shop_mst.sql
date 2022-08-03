@@ -1,4 +1,4 @@
-insert into month_shop_mst
+insert into month_shop_mst 
 select %(batch_date)s as acq_dt,
                   t_month_shop_mst.SUPERVISOR_CD as supervisor_cd,
                   t_month_shop_mst.SHOP_CD as shop_cd,
@@ -41,7 +41,7 @@ select %(batch_date)s as acq_dt,
                       when SHOP_CLS like 'W00%%'
                            or SHOP_CLS like 'Z90%%'
                            or SHOP_CLS like 'Z91%%' then 'solution'
-                      else 'ª½ªÎöâ'
+                      else 'ÂªÂ½ÂªÃŽÃ¶Ã¢'
                   end as sales_channel1,
                   case
                       when SHOP_CLS like 'A%%' then 'Shop'
