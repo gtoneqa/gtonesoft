@@ -1,0 +1,41 @@
+<script id="backbone-template-project-auth-setting-main" type="text/template">
+<div class="ca-project-auth-setting-title-area">
+    <div class="ca-subtitle-area"></div>
+</div>
+<div class="ca-project-auth-setting-content-area"></div>
+</script>
+
+<script id="backbone-template-project-auth-setting-list" type="text/template">
+<div class="ca-project-auth-setting-list-area">
+    <div class="ca-project-auth-setting-list-container">
+        <div class="ca-default-tree-list ca-no-margin-search-panel ca-project-auth-setting-list-tree"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-template-project-auth-setting-below" type="text/template">
+<div class="ca-project-auth-setting-below-area">
+    <div class="ca-project-auth-setting-below-container">
+        <div class="ca-tab-box ca-project-auth-setting-below-tab-box">
+            <div class="ca-tab ca-project-auth-setting-below-tab">
+                <div class="rect ca-tab-btn ca-project-auth-setting-below-user-tab ca-tab-selected" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:user"></div>
+                </div>
+                <div class="rect ca-tab-btn ca-project-auth-setting-below-group-tab" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:group"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ca-project-auth-setting-below-view-container ca-project-auth-setting-below-user-container">
+            <div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-project-auth-setting-below-user-grid"></div>
+            <div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-project-auth-setting-below-group-grid ca-hide"></div>
+        </div>
+        <div class="ca-project-auth-setting-below-toolbar"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-templates-project-auth-setting-role-select-dialog" type="text/template">
+<div class="ca-project-auth-setting-role-select-grid"></div>
+<div class="ca-project-auth-setting-role-select-toolbar"></div>
+</script>

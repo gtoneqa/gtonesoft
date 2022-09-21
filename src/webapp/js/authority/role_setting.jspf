@@ -1,0 +1,47 @@
+<script id="backbone-template-role-setting-main-area" type="text/template">
+<div class="ca-role-setting-title-area">
+    <div class="ca-subtitle-area"></div>
+</div>
+<div class="ca-role-setting-content-area"></div>
+</script>
+
+<script id="backbone-templates-role-setting-list-area" type="text/template">
+<div class="ca-role-setting-list-area">
+    <div class="ca-role-setting-list-container">
+        <div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-role-setting-list-grid"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-template-role-setting-detail-area" type="text/template">
+<div class="ca-role-setting-detail-area">
+    <div class="ca-role-setting-detail-container">
+        <div class="ca-tab-box ca-role-setting-detail-tab-box">
+            <div class="ca-tab ca-role-setting-detail-tab">
+                <div class="rect ca-tab-btn ca-role-setting-detail-role-tab ca-tab-selected" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:role"></div>
+                </div>
+                <div class="rect ca-tab-btn ca-role-setting-detail-perm-tab" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:permission"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ca-role-setting-detail-view-container ca-role-setting-detail-role-container">
+            <div class="ca-role-setting-detail-role-scrollview">
+                <div class="ca-form-line-container">
+                    <div class="ca-float-left ca-font ca-form-label ca-form-label-mandatory" data-i18n="label:role_nm"></div>
+                    <div class="ca-float-left ca-role-setting-detail-rolenm-textbox"></div>
+                </div>
+                <div class="ca-form-line-container">
+                    <div class="ca-float-left ca-font ca-form-label ca-role-setting-detail-desc-label" data-i18n="label:description"></div>
+                    <div class="ca-float-left ca-role-setting-detail-desc-textarea"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ca-role-setting-detail-view-container ca-role-setting-detail-perm-container ca-hide">
+            <div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-role-setting-detail-perm-grid"></div>
+        </div>
+        <div class="ca-role-setting-detail-toolbar"></div>
+    </div>
+</div>
+</script>

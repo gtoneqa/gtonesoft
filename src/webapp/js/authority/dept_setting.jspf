@@ -1,0 +1,51 @@
+<script id="backbone-template-dept-setting-main-area" type="text/template">
+<div class="ca-dept-setting-title-area">
+    <div class="ca-subtitle-area"></div>
+</div>
+<div class="ca-dept-setting-content-area"></div>
+</script>
+
+<script id="backbone-templates-dept-setting-list-area" type="text/template">
+<div class="ca-dept-setting-list-area">
+    <div class="ca-dept-setting-list-container">
+        <div class="ca-default-tree-list ca-no-margin-search-panel ca-dept-setting-list-tree"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-template-dept-setting-detail-area" type="text/template">
+<div class="ca-dept-setting-detail-area">
+    <div class="ca-dept-setting-detail-container">
+        <div class="ca-tab-box ca-dept-setting-detail-tab-box">
+            <div class="ca-tab ca-dept-setting-detail-tab">
+                <div class="rect ca-tab-btn ca-dept-setting-detail-dept-tab ca-tab-selected" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:department"></div>
+                </div>
+                <div class="rect ca-tab-btn ca-dept-setting-detail-user-tab" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:user"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ca-dept-setting-detail-view-container ca-dept-setting-detail-dept-container">
+            <div class="ca-dept-setting-detail-dept-scrollview">
+                <div class="ca-form-line-container">
+                    <div class="ca-float-left ca-font ca-form-label ca-form-label-mandatory" data-i18n="label:dept_nm"></div>
+                    <div class="ca-float-left ca-dept-setting-detail-deptnm-textbox"></div>
+                </div>
+                <div class="ca-form-line-container">
+                    <div class="ca-float-left ca-font ca-form-label" data-i18n="label:division"></div>
+                    <div class="ca-float-left ca-dept-setting-detail-division-selectbox"></div>
+                </div>
+                <div class="ca-form-line-container">
+                    <div class="ca-float-left ca-font ca-form-label ca-dept-setting-detail-desc-label" data-i18n="label:description"></div>
+                    <div class="ca-float-left ca-dept-setting-detail-desc-textarea"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ca-dept-setting-detail-view-container ca-dept-setting-detail-user-container ca-hide">
+            <div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-dept-setting-detail-user-grid"></div>
+        </div>
+        <div class="ca-dept-setting-detail-toolbar"></div>
+    </div>
+</div>
+</script>

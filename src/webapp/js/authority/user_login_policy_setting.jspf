@@ -1,0 +1,124 @@
+<script id="backbone-templates-user-login-policy-setting-main" type="text/template">
+<div class="ca-subtitle-area"></div>
+<div class="ca-login-policy-accordion"></div>
+<div class="ca-login-policy-confirm-toolbar"></div>
+</script>
+
+<script id="backbone-templates-user-login-policy-setting-login-main" type="text/template">
+<div class="ca-login-policy-form-line-area">
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:password_change_period"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:password_change_period"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-password-change-period-numberbox"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:password_failures_allowed"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:password_failures_allowed"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-password-failures-allowed-numberbox"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:password_failures_limit_time"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:password_failures_limit_time"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-password-failures-limit-time-numberbox"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:password_salt_encryption_applied"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:password_salt_encryption_applied"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-password-salt-encryption-applied-switch"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-templates-user-login-policy-setting-user-id-main" type="text/template">
+<div class="ca-login-policy-form-line-area">
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:input_min_max_length"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:input_id_min_max_length"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-id-min-max-length-checkbox"></div>
+        <div class="ca-float-left ca-login-policy-id-min-length-numberbox"></div>
+        <div class="ca-float-left ca-login-policy-tilde">~</div>
+        <div class="ca-float-left ca-login-policy-id-max-length-numberbox"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:no_number_allowed"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:no_number_allowed"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-no-number-allowed-switch"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:no_special_char_allowed"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:no_special_char_allowed"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-no-special-char-allowed-switch"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-templates-user-login-policy-setting-password-main" type="text/template">
+<div class="ca-login-policy-form-line-area">
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:input_min_max_length"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:input_pwd_min_max_length"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-password-min-max-length-checkbox"></div>
+        <div class="ca-float-left ca-login-policy-password-min-length-numberbox"></div>
+        <div class="ca-float-left ca-login-policy-tilde">~</div>
+        <div class="ca-float-left ca-login-policy-password-max-length-numberbox"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:no_same_string_as_id_allowed"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:no_same_string_as_id_allowed"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-no-same-string-as-id-allowed-switch"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:contains_one_or_more_alphabets"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:contains_one_or_more_alphabets"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-contains-alphabet-switch"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:contains_one_or_more_lowercase"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:contains_one_or_more_lowercase"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-contains-lowercase-switch"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:contains_one_or_more_uppercase"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:contains_one_or_more_uppercase"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-contains-uppercase-switch"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:contains_one_or_more_number"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:contains_one_or_more_number"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-contains-number-switch"></div>
+    </div>
+    <div class="ca-form-line-container ca-login-policy-form-line-container">
+        <div class="ca-float-left ca-font ca-form-label-hint-container">
+            <div class="ca-float-left ca-font ca-form-label" data-i18n="label:contains_one_or_more_special_char"></div>
+            <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:contains_one_or_more_special_char"></div>
+        </div>
+        <div class="ca-float-left ca-login-policy-contains-special-char-switch"></div>
+    </div>
+</div>
+</script>

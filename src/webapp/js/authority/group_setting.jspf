@@ -1,0 +1,58 @@
+<script id="backbone-template-group-setting-main-area" type="text/template">
+<div class="ca-group-setting-title-area">
+    <div class="ca-subtitle-area"></div>
+</div>
+<div class="ca-group-setting-content-area"></div>
+</script>
+
+<script id="backbone-templates-group-setting-list-area" type="text/template">
+<div class="ca-group-setting-list-area">
+    <div class="ca-group-setting-list-container">
+        <div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-group-setting-list-grid"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-template-group-setting-detail-area" type="text/template">
+<div class="ca-group-setting-detail-area">
+    <div class="ca-group-setting-detail-container">
+        <div class="ca-tab-box ca-group-setting-detail-tab-box">
+            <div class="ca-tab ca-group-setting-detail-tab">
+                <div class="rect ca-tab-btn ca-group-setting-detail-group-tab ca-tab-selected" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:group"></div>
+                </div>
+                <div class="rect ca-tab-btn ca-group-setting-detail-user-tab" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:user"></div>
+                </div>
+                <div class="rect ca-tab-btn ca-group-setting-detail-project-tab" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:project_role"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ca-group-setting-detail-view-container ca-group-setting-detail-group-container">
+            <div class="ca-group-setting-detail-group-scrollview">
+                <div class="ca-form-line-container">
+                    <div class="ca-float-left ca-font ca-form-label ca-form-label-mandatory" data-i18n="label:group_nm"></div>
+                    <div class="ca-float-left ca-group-setting-detail-groupnm-textbox"></div>
+                </div>
+                <div class="ca-form-line-container">
+                    <div class="ca-float-left ca-font ca-form-label ca-group-setting-detail-desc-label" data-i18n="label:description"></div>
+                    <div class="ca-float-left ca-group-setting-detail-desc-textarea"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ca-group-setting-detail-view-container ca-group-setting-detail-user-container ca-hide">
+            <div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-group-setting-detail-user-grid"></div>
+        </div>
+        <div class="ca-group-setting-detail-view-container ca-group-setting-detail-project-container ca-hide">
+            <div class="ca-default-tree-list ca-no-margin-search-panel ca-group-setting-detail-project-tree"></div>
+        </div>
+        <div class="ca-group-setting-detail-toolbar"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-templates-group-setting-role-select-dialog" type="text/template">
+<div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-group-setting-role-select-grid"></div>
+<div class="ca-group-setting-role-select-toolbar"></div>
+</script>

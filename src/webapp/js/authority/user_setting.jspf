@@ -1,0 +1,193 @@
+<script id="backbone-template-user-setting-main-area" type="text/template">
+<div class="ca-user-setting-title-area">
+    <div class="ca-subtitle-area"></div>
+</div>
+<div class="ca-user-setting-content-area"></div>
+</script>
+
+<script id="backbone-templates-user-setting-list-area" type="text/template">
+<div class="ca-user-setting-list-area">
+    <div class="ca-user-setting-list-container">
+        <div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-user-setting-list-grid"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-template-user-setting-detail-area" type="text/template">
+<div class="ca-user-setting-detail-area">
+    <div class="ca-user-setting-detail-container">
+        <div class="ca-tab-box ca-user-setting-detail-tab-box">
+            <div class="ca-tab ca-user-setting-detail-tab">
+                <div class="rect ca-tab-btn ca-user-setting-detail-user-tab ca-tab-selected" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:user"></div>
+                </div>
+                <div class="rect ca-tab-btn ca-user-setting-detail-group-tab ca-hide" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:group"></div>
+                </div>
+                <div class="rect ca-tab-btn ca-user-setting-detail-project-tab ca-hide" data-options="dxItem: {baseSize: 200}">
+                    <div class="ca-font ca-tab-text" data-i18n="label:project_role"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ca-user-setting-detail-view-container ca-user-setting-detail-user-container">
+            <div class="ca-user-setting-detail-user-scrollview">
+                <div class="ca-user-setting-detail-user-accordion"></div>
+            </div>
+        </div>
+        <div class="ca-user-setting-detail-view-container ca-user-setting-detail-group-container ca-hide">
+            <div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-user-setting-detail-group-grid"></div>
+        </div>
+        <div class="ca-user-setting-detail-view-container ca-user-setting-detail-project-container ca-hide">
+            <div class="ca-default-tree-list ca-no-margin-search-panel ca-user-setting-detail-project-tree"></div>
+        </div>
+        <div class="ca-user-setting-detail-toolbar"></div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-template-user-setting-detail-user-basic" type="text/template">
+<div class="ca-user-setting-detail-user-basic-area">
+    <div class="ca-user-setting-detail-view-container ca-user-setting-detail-user-basic-container">
+        <div class="ca-form-line-container ca-form-textarea-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label ca-form-label-mandatory" data-i18n="label:user_id"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:input_user_id"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-user-id"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label ca-form-label-mandatory" data-i18n="label:user_nm"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:input_user_nm"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-user-nm"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label ca-form-label-mandatory" data-i18n="label:department"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:select_department"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-dept-nm"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:job_position"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:select_job_pos"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-job-pos"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:email"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:input_email"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-email"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:contact"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:input_contact"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-contact"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:create_dt"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:create_dt"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-create-dt"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:last_access_dt"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:last_access_dt"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-last-access-dt"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:last_access_ip"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:last_access_ip"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-last-access-ip"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container ca-user-setting-detail-lock-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:lock"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:lock_user"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-lock"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-textarea-line-container ca-user-setting-detail-delete-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:delete"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:delete_user"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-delete"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-template-user-setting-detail-user-auth" type="text/template">
+<div class="ca-user-setting-detail-user-auth-area">
+    <div class="ca-user-setting-detail-view-container ca-user-setting-detail-user-auth-container">
+        <div class="ca-form-line-container ca-form-collector-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label ca-form-label-mandatory" data-i18n="label:password"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:input_password"></div>
+            </div>
+            <form><div class="ca-float-left ca-user-setting-detail-password"></div></form>
+        </div>
+        <div class="ca-form-line-container ca-form-collector-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label ca-form-label-mandatory" data-i18n="label:confirm_password"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:input_confirm_password"></div>
+            </div>
+            <form><div class="ca-float-left ca-user-setting-detail-confirm-password"></div></form>
+        </div>
+        <div class="ca-form-line-container ca-form-collector-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:auth_ip"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:input_auth_ip"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-auth-ip"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-collector-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:allow_duplicate_login"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:allow_duplicate_login"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-allow-duplicate-login"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-template-user-setting-detail-user-rest" type="text/template">
+<div class="ca-user-setting-detail-user-rest-area">
+    <div class="ca-user-setting-detail-view-container ca-user-setting-detail-user-rest-container">
+        <div class="ca-form-line-container ca-form-collector-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:rest_api_key"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:rest_api_key"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-rest-api-key"></div>
+            <div class="ca-float-left ca-user-setting-detail-rest-api-key-create-btn"></div>
+            <div class="ca-float-left ca-user-setting-detail-rest-api-key-delete-btn"></div>
+        </div>
+        <div class="ca-form-line-container ca-form-collector-line-container">
+            <div class="ca-float-left ca-font ca-form-label-hint-container">
+                <div class="ca-float-left ca-font ca-form-label" data-i18n="label:rest_api_key_expired_dt"></div>
+                <div class="ca-float-left ca-form-hint far fa-question-circle" hint-i18n="hint:rest_api_key_expired_dt"></div>
+            </div>
+            <div class="ca-float-left ca-user-setting-detail-rest-api-key-expired-dt"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script id="backbone-templates-user-setting-role-select-dialog" type="text/template">
+<div class="ca-default-table ca-default-scroll-table ca-no-margin-search-panel ca-user-setting-role-select-grid"></div>
+<div class="ca-user-setting-role-select-toolbar"></div>
+</script>
