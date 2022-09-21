@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gtone.cmadmin.dao.user.RoleDao">
+    <resultMap id="roleResultMap" type="com.gtone.cmadmin.dto.user.RoleDto">
+        <id property="rid" column="role_id" />
+        <result property="rnm" column="role_name" />
+        <result property="desc" column="role_desc" />
+        <collection property="pmcds" ofType="java.lang.String">
+            <result column="permission_code" />
+        </collection>
+    </resultMap>
+    <resultMap id="permissionResultMap" type="com.gtone.cmadmin.dto.com.CodeDto">
+        <result property="cd" column="code" />
+        <result property="nm" column="code_value" />
+        <result property="desc" column="code_description" />
+    </resultMap>
+    <select id="getRoles" resultMap="roleResultMap"><![CDATA[
+SELECT R.ROLE_ID
+     , R.ROLE_NAME
+     , R.ROLE_DESC
+     , P.PERMISSION_CODE 
+  FROM CM_ROLE R
+       LEFT OUTER JOIN CM_ROLE_PERMISSION P
+    ON R.ROLE_ID = P.ROLE_ID
+ ORDER BY R.ROLE_NAME
+    ]]></select>
+    <select id="getRole" resultMap="roleResultMap"><![CDATA[
+SELECT R.ROLE_ID
+     , R.ROLE_NAME
+     , R.ROLE_DESC
+     , P.PERMISSION_CODE 
+  FROM CM_ROLE R
+       LEFT OUTER JOIN CM_ROLE_PERMISSION P
+    ON R.ROLE_ID = P.ROLE_ID
+ WHERE R.ROLE_ID = #{rid}
+    ]]></select>
+
+    <select id="getNewRoleId" resultType="java.lang.String">
+        <choose>
+            <when test="_databaseId == 'mysql'"><![CDATA[
+SELECT C_ROLE_SEQ() AS ROLE_ID
+    ]]></when>
+            <when test="_databaseId == 'mssql'"><![CDATA[
+SELECT NEXT VALUE FOR C_ROLE_SEQ AS ROLE_ID
+    ]]></when>
+            <otherwise><![CDATA[
+SELECT C_ROLE_SEQ.NEXTVAL AS ROLE_ID
+  FROM DUAL
+    ]]></otherwise>
+        </choose>
+    </select>
+
+    <insert id="insertRole"><![CDATA[
+INSERT INTO CM_ROLE (ROLE_ID, ROLE_NAME, ROLE_DESC, CRE_ID, CRE_DT)
+VALUES (#{rid}, #{rnm}, #{desc}, #{creid}, #{credt})
+    ]]></insert>
+    <update id="updateRole"><![CDATA[
+UPDATE CM_ROLE 
+   SET ROLE_NAME = CASE WHEN #{rnm} IS NULL THEN ROLE_NAME ELSE #{rnm} END
+     , ROLE_DESC = #{desc}
+     , UPD_ID = #{updid}
+     , UPD_DT = #{upddt}
+ WHERE ROLE_ID = #{rid}
+    ]]></update>
+    <delete id="deleteGroupBizRole"><![CDATA[
+DELETE FROM CM_GROUP_BIZ_ROLE
+ WHERE ROLE_ID = #{rid}
+    ]]></delete>
+    <delete id="deleteUserBizRole"><![CDATA[
+DELETE FROM CM_USER_BIZ_ROLE
+ WHERE ROLE_ID = #{rid}
+    ]]></delete>
+    <delete id="deleteRole"><![CDATA[
+DELETE FROM CM_ROLE 
+ WHERE ROLE_ID = #{rid}
+    ]]></delete>
+    
+    <select id="getRolePermissions" resultType="java.lang.String"><![CDATA[
+SELECT P.PERMISSION_CODE 
+  FROM CM_ROLE_PERMISSION P
+ WHERE P.ROLE_ID = #{rid}
+    ]]></select>
+    <insert id="insertRolePermission"><![CDATA[
+INSERT INTO CM_ROLE_PERMISSION (ROLE_ID, PERMISSION_CODE)
+VALUES (#{rid}, #{pmcd})
+    ]]></insert>
+    <delete id="deleteRolePermission"><![CDATA[
+DELETE FROM CM_ROLE_PERMISSION
+ WHERE ROLE_ID = #{rid}
+    ]]></delete>
+
+    <select id="getPermissions" resultMap="permissionResultMap"><![CDATA[
+SELECT CODE
+     , CODE_VALUE
+     , CODE_DESCRIPTION
+  FROM CM_CODE_INFO 
+ WHERE CODE_CATEGORY = 401
+ ORDER BY CODE
+    ]]></select>
+    
+    <delete id="deleteOldUserAuth"><![CDATA[
+DELETE FROM C_USER_BIZ_AUTH
+    ]]></delete>
+    <delete id="deleteOldGroupAuth"><![CDATA[
+DELETE FROM C_GROUP_ROLE_BIZ_AUTH
+    ]]></delete>
+    <insert id="insertOldUserAuth"><![CDATA[
+INSERT INTO C_USER_BIZ_AUTH (PKG_ID, PAR_BIZ_ID, BIZ_ID, USER_ID, AUTH_TP_CD, CRE_ID, CRE_DT)
+SELECT DISTINCT B.PKG_ID
+     , B.PAR_BIZ_ID
+     , B.BIZ_ID
+     , R.USER_ID
+     , 3101 AS AUTH_TP_CD
+     , #{updid} AS CRE_ID
+     , #{upddt} AS CRE_DT
+  FROM CM_ROLE_PERMISSION P
+       JOIN CM_USER_BIZ_ROLE R
+    ON P.ROLE_ID = R.ROLE_ID
+       JOIN C_PKG_BIZ_MAP B
+    ON R.BIZ_ID = B.BIZ_ID 
+ WHERE P.PERMISSION_CODE = 2000000
+    ]]></insert>
+    <insert id="insertOldGroupAuth"><![CDATA[
+INSERT INTO C_GROUP_ROLE_BIZ_AUTH (PKG_ID, PAR_BIZ_ID, BIZ_ID, GROUP_ID, ROLE_ID, AUTH_TP_CD, CRE_ID, CRE_DT)
+SELECT DISTINCT B.PKG_ID
+     , B.PAR_BIZ_ID
+     , B.BIZ_ID
+     , R.GROUP_ID
+     , 0 AS ROLE_ID
+     , 3101 AS AUTH_TP_CD
+     , #{updid} AS CRE_ID
+     , #{upddt} AS CRE_DT
+  FROM CM_ROLE_PERMISSION P
+       JOIN CM_GROUP_BIZ_ROLE R
+    ON P.ROLE_ID = R.ROLE_ID
+       JOIN C_PKG_BIZ_MAP B
+    ON R.BIZ_ID = B.BIZ_ID 
+ WHERE P.PERMISSION_CODE = 2000000
+    ]]></insert>
+</mapper>

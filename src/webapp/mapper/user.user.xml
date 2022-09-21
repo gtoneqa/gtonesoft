@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gtone.cmadmin.dao.user.UserDao">
+    <resultMap id="userResultMap" type="com.gtone.cmadmin.dto.user.UserDto">
+        <id property="uid" column="user_id" />
+        <result property="unm" column="user_nm" />
+        <result property="id" column="login_id" />
+        <result property="pwd" column="user_pwd" />
+        <result property="dpid" column="dep_id" />
+        <result property="dpnm" column="dep_title" />
+        <result property="posi" column="position_code" />
+        <result property="posinm" column="position_name" />
+        <result property="eml" column="email" />
+        <result property="tel" column="cell_phone" />
+        <result property="atvyn" column="active_yn" />
+        <result property="delyn" column="del_yn" />
+        <result property="credt" column="cre_dt" />
+        <result property="usedt" column="last_use_date" />
+        <result property="useip" column="last_use_ip" />
+        <result property="pwddt" column="pwd_upd_dt" />
+        <result property="multiyn" column="multi_login" />
+        <result property="authip" column="auth_ip" />
+        <result property="apikey" column="api_key" />
+        <result property="apidt" column="api_key_exp_dt" />
+    </resultMap>
+    <resultMap id="positionResultMap" type="com.gtone.cmadmin.dto.com.CodeDto">
+        <result property="cd" column="cd_id" />
+        <result property="nm" column="display_nm" />
+    </resultMap>
+    <resultMap id="roleMapResultMap" type="com.gtone.cmadmin.dto.user.RoleMapDto">
+        <id property="pid" column="biz_id" />
+        <result property="pnm" column="biz_nm" />
+        <collection property="rs" ofType="com.gtone.cmadmin.dto.user.RoleDto">
+            <result property="rid" column="role_id" />
+            <result property="rnm" column="role_name" />
+        </collection>
+    </resultMap>
+    <resultMap id="groupResultMap" type="com.gtone.cmadmin.dto.user.GroupDto">
+        <id property="gid" column="group_id" />
+        <result property="gnm" column="group_nm" />
+        <result property="desc" column="group_desc" />
+    </resultMap>
+    <select id="getUsers" resultMap="userResultMap">
+    <if test='lmt != null and !"".equals(lmt)'><include refid="pagination.paging_header" /></if>
+    <![CDATA[
+SELECT U.USER_ID
+     , U.USER_NM
+     , U.LOGIN_ID
+  FROM C_USER U
+ WHERE U.DEL_YN = 'N'
+   AND U.ACTIVE_YN = 'Y'
+ ORDER BY U.LOGIN_ID
+    ]]>
+    <if test='lmt != null and !"".equals(lmt)'><include refid="pagination.paging_footer" /></if>
+    </select>
+    <select id="getUserInfos" resultMap="userResultMap">
+    <if test='lmt != null and !"".equals(lmt)'><include refid="pagination.paging_header" /></if>
+    <![CDATA[
+SELECT U.USER_ID
+     , U.USER_NM
+     , U.LOGIN_ID
+     , U.DEP_ID
+     , D.DEP_TITLE
+     , U.POSITION_CODE
+     , PN.DISPLAY_NM AS POSITION_NAME
+     , U.EMAIL
+     , U.CELL_PHONE
+     , U.ACTIVE_YN
+     , U.DEL_YN
+     , U.CRE_DT
+     , U.LAST_USE_DATE
+     , U.LAST_USE_IP
+     , UM.MULTI_LOGIN
+     , UM.AUTH_IP
+     , UM.API_KEY
+     , UM.API_KEY_EXP_DT
+  FROM C_USER U
+       LEFT OUTER JOIN CM_USER_META UM
+    ON U.USER_ID = UM.USER_ID
+       JOIN C_DEP_INFO D
+    ON U.DEP_ID = D.DEP_ID
+       LEFT OUTER JOIN C_CD_NM PN
+    ON U.POSITION_CODE = PN.CD_ID
+   AND PN.LANG_CD = #{lang}
+    ]]><if test="delyn != null"><![CDATA[
+ WHERE DEL_YN = #{delyn}
+    ]]></if><![CDATA[
+ ORDER BY LOGIN_ID
+    ]]>
+    <if test='lmt != null and !"".equals(lmt)'><include refid="pagination.paging_footer" /></if>
+    </select>
+    <select id="getUserInfo" resultMap="userResultMap"><![CDATA[
+SELECT U.USER_ID
+     , U.USER_NM
+     , U.LOGIN_ID
+     , U.DEP_ID
+     , D.DEP_TITLE
+     , U.POSITION_CODE
+     , PN.DISPLAY_NM AS POSITION_NAME
+     , U.EMAIL
+     , U.CELL_PHONE
+     , U.ACTIVE_YN
+     , U.DEL_YN
+     , U.CRE_DT
+     , U.LAST_USE_DATE
+     , U.LAST_USE_IP
+     , UM.MULTI_LOGIN
+     , UM.AUTH_IP
+     , UM.API_KEY
+     , UM.API_KEY_EXP_DT
+  FROM C_USER U
+       LEFT OUTER JOIN CM_USER_META UM
+    ON U.USER_ID = UM.USER_ID
+       JOIN C_DEP_INFO D
+    ON U.DEP_ID = D.DEP_ID
+       LEFT OUTER JOIN C_CD_NM PN
+    ON U.POSITION_CODE = PN.CD_ID
+   AND PN.LANG_CD = #{lang}
+ WHERE U.USER_ID = #{uid}
+ ORDER BY LOGIN_ID
+    ]]></select>
+    <select id="getUserInfoById" resultMap="userResultMap"><![CDATA[
+SELECT U.USER_ID
+     , U.USER_NM
+     , U.LOGIN_ID
+     , U.USER_PWD
+     , U.DEP_ID
+     , D.DEP_TITLE
+     , U.POSITION_CODE
+     , U.EMAIL
+     , U.CELL_PHONE
+     , U.ACTIVE_YN
+     , U.DEL_YN
+     , U.CRE_DT
+     , U.LAST_USE_DATE
+     , U.LAST_USE_IP
+     , UM.PWD_UPD_DT
+     , UM.MULTI_LOGIN
+     , UM.AUTH_IP
+     , UM.API_KEY
+     , UM.API_KEY_EXP_DT
+  FROM C_USER U
+       LEFT OUTER JOIN CM_USER_META UM
+    ON U.USER_ID = UM.USER_ID
+       JOIN C_DEP_INFO D
+    ON U.DEP_ID = D.DEP_ID
+ WHERE U.LOGIN_ID = #{id}
+ ORDER BY LOGIN_ID
+    ]]></select>
+
+    <select id="getNewUserId" resultType="java.lang.String">
+        <choose>
+            <when test="_databaseId == 'mysql'"><![CDATA[
+SELECT C_USER_SEQ() AS USER_ID
+    ]]></when>
+            <when test="_databaseId == 'mssql'"><![CDATA[
+SELECT NEXT VALUE FOR C_USER_SEQ AS USER_ID
+    ]]></when>
+            <otherwise><![CDATA[
+SELECT C_USER_SEQ.NEXTVAL AS USER_ID
+  FROM DUAL
+    ]]></otherwise>
+        </choose>
+    </select>
+    
+    <insert id="insertUser"><![CDATA[
+INSERT INTO C_USER (USER_ID, USER_NM, LOGIN_ID, USER_PWD, DEP_ID, POSITION_CODE, EMAIL, CELL_PHONE, ACTIVE_YN, PWD_FAIL_COUNT, CRE_ID, CRE_DT, DEL_YN)
+VALUES (#{uid}, #{unm}, #{id}, #{pwd}, #{dpid}, #{posi}, #{eml}, #{tel}, #{atvyn}, 0, #{creid}, #{credt}, 'N')
+    ]]></insert>
+    <insert id="insertUserMeta"><![CDATA[
+INSERT INTO CM_USER_META(USER_ID, PWD_UPD_DT, MULTI_LOGIN, AUTH_IP, API_KEY_EXP_DT)
+VALUES (#{uid}, #{pwddt}, #{multiyn}, #{authip}, #{apidt})
+    ]]></insert>
+    <insert id="insertUserReportAuth"><![CDATA[
+INSERT INTO CM_DC_REPORT_AUTH(REPORT_ID, AUTH_TYPE, AUTH_ID)
+SELECT REPORT_ID, 'U', #{uid}
+  FROM DC_REPORT_INFO 
+ WHERE REPORT_TYPE_CD IN (1, 2)
+   AND DEL_YN = 'N'
+    ]]></insert>
+    
+    <update id="updateUser"><![CDATA[
+UPDATE C_USER
+   SET UPD_ID = #{updid}
+     , UPD_DT = #{upddt}
+    ]]><if test="id != null"><![CDATA[
+     , LOGIN_ID = #{id}
+    ]]></if><![CDATA[
+    ]]><if test="unm != null"><![CDATA[
+     , USER_NM = #{unm}
+    ]]></if><![CDATA[
+    ]]><if test="pwd != null"><![CDATA[
+     , USER_PWD = #{pwd}
+    ]]></if><![CDATA[
+     , DEP_ID = #{dpid}
+     , POSITION_CODE = #{posi}
+     , EMAIL = #{eml}
+     , CELL_PHONE = #{tel}
+    ]]><if test="atvyn != null"><![CDATA[
+     , ACTIVE_YN = #{atvyn}
+    ]]></if><![CDATA[
+    ]]><if test="delyn != null"><![CDATA[
+     , DEL_YN = #{delyn}
+    ]]></if><![CDATA[
+ WHERE USER_ID = #{uid}
+    ]]></update>
+    <update id="updateUserMeta"><![CDATA[
+UPDATE CM_USER_META
+   SET MULTI_LOGIN = CASE WHEN #{multiyn} IS NULL THEN MULTI_LOGIN ELSE #{multiyn} END
+    ]]><if test="pwddt != null"><![CDATA[
+     , PWD_UPD_DT = #{pwddt}
+    ]]></if><![CDATA[
+     , AUTH_IP = #{authip}
+ WHERE USER_ID = #{uid}
+    ]]></update>
+    <update id="updateApikey"><![CDATA[
+UPDATE CM_USER_META
+   SET API_KEY = #{apikey}
+     , API_KEY_EXP_DT = #{apidt}
+ WHERE USER_ID = #{uid}
+    ]]></update>
+    <update id="deleteApikey"><![CDATA[
+UPDATE CM_USER_META
+   SET API_KEY = NULL
+     , API_KEY_EXP_DT = NULL
+ WHERE USER_ID = #{uid}
+    ]]></update>
+
+    <delete id="deleteBizAuth"><![CDATA[
+DELETE FROM C_USER_BIZ_AUTH
+ WHERE USER_ID = #{uid}
+    ]]></delete>
+    <delete id="deleteUserBizRole"><![CDATA[
+DELETE FROM CM_USER_BIZ_ROLE
+ WHERE USER_ID = #{uid}
+    ]]></delete>
+    <delete id="deleteUserGroup"><![CDATA[
+DELETE FROM C_USER_GROUP_ROLE
+ WHERE USER_ID = #{uid}
+    ]]></delete>
+    <delete id="deleteReportAuth"><![CDATA[
+DELETE FROM CM_DC_REPORT_AUTH
+ WHERE AUTH_ID = #{uid}
+   AND AUTH_TYPE = 'U'
+    ]]></delete>
+    <delete id="deleteUser"><![CDATA[
+UPDATE C_USER
+   SET DEL_YN = 'Y'
+     , DEL_ID = #{delid}
+     , DEL_DT = #{deldt}
+ WHERE USER_ID = #{uid}
+    ]]></delete>
+
+    <select id="getPositions" resultMap="positionResultMap"><![CDATA[
+SELECT N.CD_ID
+     , N.DISPLAY_NM
+  FROM C_CD C
+       JOIN C_CD_NM N
+    ON C.CD_ID = N.CD_ID
+ WHERE C.CD_GRP_ID = '2100'
+   AND LANG_CD = #{lang}
+ ORDER BY C.CD_ID
+    ]]></select>
+
+    <select id="getUserGroupMap" resultMap="groupResultMap"><![CDATA[
+SELECT G.GROUP_ID
+     , G.GROUP_NM 
+  FROM C_USER_GROUP_ROLE M
+       JOIN C_GROUP G
+    ON M.GROUP_ID = G.GROUP_ID
+ WHERE M.USER_ID = #{uid}
+ ORDER BY G.GROUP_NM
+    ]]></select>
+    <delete id="deleteUserGroupMap"><![CDATA[
+DELETE FROM C_USER_GROUP_ROLE 
+ WHERE USER_ID = #{uid}
+    ]]></delete>
+    <insert id="insertUserGroupMap"><![CDATA[
+INSERT INTO C_USER_GROUP_ROLE (USER_ID, GROUP_ID, ROLE_ID, CRE_ID, CRE_DT)
+VALUES (#{uid}, #{gid}, 0, #{creid}, #{credt})
+    ]]></insert>
+
+    <select id="getUserRoleMap" resultMap="roleMapResultMap"><![CDATA[
+SELECT DISTINCT BIZ_ID, BIZ_NM, ROLE_ID, ROLE_NAME 
+  FROM (SELECT B.BIZ_ID
+             , B.BIZ_NM
+             , R.ROLE_ID
+             , R.ROLE_NAME
+          FROM CM_USER_BIZ_ROLE U
+               JOIN C_BIZ B
+            ON U.BIZ_ID = B.BIZ_ID
+           AND B.BIZ_ID > 0
+           AND B.DEL_YN = 'N'
+               JOIN CM_ROLE R
+            ON U.ROLE_ID = R.ROLE_ID
+         WHERE U.USER_ID = #{uid}) R
+ ORDER BY R.BIZ_ID, R.ROLE_ID 
+    ]]></select>
+    <insert id="insertUserRoleMap"><![CDATA[
+INSERT INTO CM_USER_BIZ_ROLE (USER_ID, BIZ_ID, ROLE_ID)
+VALUES (#{uid}, #{pid}, #{rid})
+    ]]></insert>
+    <delete id="deleteUserRoleMap"><![CDATA[
+DELETE FROM CM_USER_BIZ_ROLE 
+ WHERE USER_ID = #{uid}
+   AND BIZ_ID = #{pid}
+    ]]></delete>
+    
+    <insert id="insertUserRoleMapOld"><![CDATA[
+INSERT INTO C_USER_BIZ_AUTH (PKG_ID, PAR_BIZ_ID, BIZ_ID, USER_ID, AUTH_TP_CD, CRE_ID, CRE_DT)
+SELECT B.PKG_ID
+     , B.PAR_BIZ_ID
+     , B.BIZ_ID
+     , R.USER_ID
+     , 3101 AS AUTH_TP_CD
+     , #{creid} AS CRE_ID
+     , #{credt} AS CRE_DT
+  FROM CM_USER_BIZ_ROLE R
+       JOIN CM_ROLE_PERMISSION P
+    ON R.ROLE_ID = P.ROLE_ID
+   AND P.PERMISSION_CODE = 2000000
+       JOIN C_PKG_BIZ_MAP B
+    ON R.BIZ_ID = B.BIZ_ID 
+       LEFT OUTER JOIN C_USER_BIZ_AUTH A
+    ON B.PKG_ID = A.PKG_ID 
+   AND B.PAR_BIZ_ID = A.PAR_BIZ_ID
+   AND B.BIZ_ID = A.BIZ_ID
+   AND A.USER_ID = #{uid}
+ WHERE R.USER_ID = #{uid}
+   AND R.BIZ_ID = #{pid}
+   AND R.ROLE_ID = #{rid}
+   AND A.USER_ID IS NULL
+    ]]></insert>
+    <delete id="deleteUserRoleMapOld"><![CDATA[
+DELETE FROM C_USER_BIZ_AUTH
+ WHERE USER_ID = #{uid}
+   AND BIZ_ID = #{pid}
+    ]]></delete>
+    
+    <update id="updateUserPwd"><![CDATA[
+UPDATE C_USER
+   SET USER_PWD = #{pwd}
+     , UPD_DT = #{pwddt, jdbcType=INTEGER}
+ WHERE USER_ID = #{uid, jdbcType=INTEGER}
+    ]]></update>
+    <update id="updateUserPwdUpdDt"><![CDATA[
+UPDATE CM_USER_META
+   SET PWD_UPD_DT = #{pwddt, jdbcType=INTEGER}
+ WHERE USER_ID = #{uid, jdbcType=INTEGER}
+    ]]></update>
+    
+</mapper>
