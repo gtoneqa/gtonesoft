@@ -1,0 +1,514 @@
+[2022-09-21 15:56:53:030][INFO ] Creating access control expression attribute 'permitAll' fo
+Launcher [Wed Sep 21 15:56:53CMC [Wed Sep 21 15:56:53 KST 2022]DEBUG : [MessageReader-127.0.0.1:60103]
+[2022-09-21 15:56:53:953][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getOracleTablespacePrivilege
+[2022-09-21 15:56:53:959][DEBUG] ==>  Preparing: SELECT 'OK' FROM SYS.DBA_TABLESPACES WHERE ROWNUM <= 1 
+[2022-09-21 15:56:53:963][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:53:988][DEBUG] <==      Total: 1
+[2022-09-21 15:56:53:991][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvs
+[2022-09-21 15:56:53:991][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME IN ('WEB', 'VIEW', 'ANALYZER') 
+[2022-09-21 15:56:53:992][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:53:997][DEBUG] <==      Total: 57
+CMC [Wed Sep 21 15:56:54 KST 2022]DEBUG : [MessageWriter-127.0.0.1:60103]
+[2022-09-21 15:56:54:919][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvVal
+[2022-09-21 15:56:54:920][DEBUG] ==>  Preparing: SELECT OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:56:54:920][DEBUG] ==> Parameters: REPOSITORY(String), PRODUCT_NAME(String)
+[2022-09-21 15:56:54:922][DEBUG] <==      Total: 1
+[2022-09-21 15:56:54:923][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvVal
+[2022-09-21 15:56:54:924][DEBUG] ==>  Preparing: SELECT OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:56:54:924][DEBUG] ==> Parameters: REPOSITORY(String), DATA_LANG(String)
+[2022-09-21 15:56:54:926][DEBUG] <==      Total: 1
+[2022-09-21 15:56:54:935][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getCollectTypes
+[2022-09-21 15:56:54:936][DEBUG] ==>  Preparing: SELECT CODE FROM CM_CODE_INFO WHERE CODE_CATEGORY = 411 ORDER BY CODE 
+[2022-09-21 15:56:54:936][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:54:938][DEBUG] <==      Total: 31
+[2022-09-21 15:56:55:058][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getStatActives
+[2022-09-21 15:56:55:059][DEBUG] ==>  Preparing: SELECT STAT_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_STAT WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY STAT_ID 
+[2022-09-21 15:56:55:059][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:55:061][DEBUG] <==      Total: 75
+[2022-09-21 15:56:55:063][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardPageActives
+[2022-09-21 15:56:55:063][DEBUG] ==>  Preparing: SELECT PAGE_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD_PAGE WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY PAGE_ID 
+[2022-09-21 15:56:55:063][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:55:064][DEBUG] <==      Total: 5
+[2022-09-21 15:56:55:065][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardCategoryActives
+[2022-09-21 15:56:55:066][DEBUG] ==>  Preparing: SELECT CATEGORY_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD_CATEGORY WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY CATEGORY_ID 
+[2022-09-21 15:56:55:066][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:55:067][DEBUG] <==      Total: 5
+[2022-09-21 15:56:55:068][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardActives
+[2022-09-21 15:56:55:069][DEBUG] ==>  Preparing: SELECT DASHBOARD_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY DASHBOARD_ID 
+[2022-09-21 15:56:55:069][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:55:070][DEBUG] <==      Total: 60
+[2022-09-21 15:56:55:071][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getReportActives
+[2022-09-21 15:56:55:072][DEBUG] ==>  Preparing: SELECT REPORT_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM DC_REPORT_INFO WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY REPORT_ID 
+[2022-09-21 15:56:55:072][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:55:074][DEBUG] <==      Total: 80
+[2022-09-21 15:56:56:050][INFO ] Will secure any request with [org.springframework.security.web.context.SecurityContextPersistenceFilter@7b1a3ef1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b614b1, org.springframework.security.web.header.HeaderWriterFilter@6bddd158, org.springframework.security.web.csrf.CsrfFilter@62ae6242, org.springframework.security.web.authentication.logout.LogoutFilter@48e93550, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7dcfa360, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@789dfa90, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@69302bb3, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@68f2c070, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68a6baad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ff89453, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17fd55ac, org.springframework.security.web.session.SessionManagementFilter@69f2f663, org.springframework.security.web.access.ExceptionTranslationFilter@345c5a22, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@f3d1af6]
+[2022-09-21 15:56:56:056][INFO ] Checking whether login URL '/login' is accessible with your configuration
+[2022-09-21 15:56:56:077][INFO ] Root WebApplicationContext initialized in 3356 ms
+21-Sep-2022 15:56:56.083 정보 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring DispatcherServlet 'mvc-dispatcher'
+[2022-09-21 15:56:56:083][INFO ] Initializing Servlet 'mvc-dispatcher'
+Launcher [Wed Sep 21 15:56:56 KST 2022]INFO  : contextInitialized called
+Launcher [Wed Sep 21 15:56:56 KST 2022]TRACE : jndi_name : IWIZARD
+Launcher [Wed Sep 21 15:56:56 KST 2022]TRACE : ipaddress : 127.0.0.1
+Launcher [Wed Sep 21 15:56:56 KST 2022]TRACE :      port : 60103
+Launcher [Wed Sep 21 15:56:56 KST 2022]TRACE :      timeout : 60
+Launcher [Wed Sep 21 15:56:56 KST 2022]TRACE :      syncmode : ASYNC
+CMC [Wed Sep 21 15:56:56 KST 2022]DEBUG : [MessageReader-127.0.0.1:60103]
+[2022-09-21 15:56:56:427][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getOracleTablespacePrivilege
+[2022-09-21 15:56:56:427][DEBUG] ==>  Preparing: SELECT 'OK' FROM SYS.DBA_TABLESPACES WHERE ROWNUM <= 1 
+[2022-09-21 15:56:56:427][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:56:431][DEBUG] <==      Total: 1
+[2022-09-21 15:56:56:432][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvs
+[2022-09-21 15:56:56:433][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME IN ('WEB', 'VIEW', 'ANALYZER') 
+[2022-09-21 15:56:56:433][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:56:436][DEBUG] <==      Total: 57
+CMC [Wed Sep 21 15:56:57 KST 2022]DEBUG : [MessageWriter-127.0.0.1:60103]
+[2022-09-21 15:56:57:428][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvVal
+[2022-09-21 15:56:57:429][DEBUG] ==>  Preparing: SELECT OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:56:57:429][DEBUG] ==> Parameters: REPOSITORY(String), PRODUCT_NAME(String)
+[2022-09-21 15:56:57:431][DEBUG] <==      Total: 1
+[2022-09-21 15:56:57:432][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvVal
+[2022-09-21 15:56:57:433][DEBUG] ==>  Preparing: SELECT OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:56:57:434][DEBUG] ==> Parameters: REPOSITORY(String), DATA_LANG(String)
+[2022-09-21 15:56:57:435][DEBUG] <==      Total: 1
+[2022-09-21 15:56:57:437][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getStatActives
+[2022-09-21 15:56:57:437][DEBUG] ==>  Preparing: SELECT STAT_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_STAT WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY STAT_ID 
+[2022-09-21 15:56:57:438][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:57:441][DEBUG] <==      Total: 75
+[2022-09-21 15:56:57:442][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardPageActives
+[2022-09-21 15:56:57:443][DEBUG] ==>  Preparing: SELECT PAGE_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD_PAGE WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY PAGE_ID 
+[2022-09-21 15:56:57:443][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:57:445][DEBUG] <==      Total: 5
+[2022-09-21 15:56:57:446][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardCategoryActives
+[2022-09-21 15:56:57:447][DEBUG] ==>  Preparing: SELECT CATEGORY_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD_CATEGORY WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY CATEGORY_ID 
+[2022-09-21 15:56:57:447][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:57:449][DEBUG] <==      Total: 5
+[2022-09-21 15:56:57:449][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardActives
+[2022-09-21 15:56:57:450][DEBUG] ==>  Preparing: SELECT DASHBOARD_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY DASHBOARD_ID 
+[2022-09-21 15:56:57:450][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:57:452][DEBUG] <==      Total: 60
+[2022-09-21 15:56:57:453][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getReportActives
+[2022-09-21 15:56:57:453][DEBUG] ==>  Preparing: SELECT REPORT_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM DC_REPORT_INFO WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY REPORT_ID 
+[2022-09-21 15:56:57:453][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:57:456][DEBUG] <==      Total: 80
+[2022-09-21 15:56:57:628][INFO ] Completed initialization in 1544 ms
+21-Sep-2022 15:56:57.641 정보 [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio2-60105"]을(를) 시작합니다.
+21-Sep-2022 15:56:57.642 정보 [main] org.apache.catalina.core.StandardService.startInternal 서비스 [gtweb]을(를) 시작합니다.
+21-Sep-2022 15:56:57.642 정보 [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/8.5.68]
+[2022-09-21 15:56:58:244][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnvs
+[2022-09-21 15:56:58:263][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getBaseProductInfo
+[2022-09-21 15:56:58:264][DEBUG] ==>  Preparing: SELECT OPTION_VALUE AS PRODUCT_INFO FROM CM_ENV_OPTION WHERE SYSTEM_NAME = 'REPOSITORY' AND OPTION_NAME = 'PRODUCT_INFO' 
+[2022-09-21 15:56:58:264][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:58:264][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME IN ('VIEW', 'WEB') 
+[2022-09-21 15:56:58:264][DEBUG] ==> Parameters: 
+[2022-09-21 15:56:58:266][DEBUG] <==      Total: 1
+[2022-09-21 15:56:58:269][DEBUG] <==      Total: 53
+[2022-09-21 15:56:58:288][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.updateEnv
+[2022-09-21 15:56:58:289][DEBUG] ==>  Preparing: UPDATE CM_ENV_OPTION SET OPTION_VALUE = ? WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:56:58:289][DEBUG] ==> Parameters: {"name":"AppGovernance","version":"10.0.0.0","nick":"AG","subs":[{"name":"ChangeMiner","version":"10.0.0.0","nick":"CM"},{"name":"CodePrism","version":"5.2.0.0","nick":"CP"},{"name":"DataHawk","version":"5.0.0.0","nick":"DL"},{"name":"GapMiner","version":"3.0.0.0","nick":"GM"},{"name":"SQLMiner","version":"3.0.0.0","nick":"SM"},{"name":"SecurityPrism","version":"5.2.0.0","nick":"SP"}]}(String), WEB(String), LAST_PRODUCT_INFO(String)
+[2022-09-21 15:56:58:291][DEBUG] <==    Updates: 1
+21-Sep-2022 15:57:00.044 정보 [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
+21-Sep-2022 15:57:00.044 정보 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+21-Sep-2022 15:57:00.050 정보 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+[2022-09-21 15:57:00:230][INFO ] Root WebApplicationContext: initialization started
+[2022-09-21 15:57:00:645][INFO ] You are running with Spring Security Core 5.6.3
+[2022-09-21 15:57:00:646][INFO ] Spring Security 'config' module version is 5.6.3
+[2022-09-21 15:57:00:668][INFO ] Creating access control expression attribute 'permitAll' for /**
+[2022-09-21 15:57:00:680][INFO ] No login page configured. The default internal one will be used. Use the 'login-page' attribute to set the URL of the login page.
+[2022-09-21 15:57:00:683][INFO ] Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.csrf.CsrfFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 700, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1400, Root bean: class [org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1600, Root bean: class [org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 2200, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2500, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2800, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2900, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 3000]
+Launcher [Wed Sep 21 15:57:01 KST 2022]INFO  : contextInitialized called
+Launcher [Wed Sep 21 15:57:01 KST 2022]TRACE : jndi_name : IWIZARD
+Launcher [Wed Sep 21 15:57:01 KST 2022]TRACE : ipaddress : 127.0.0.1
+Launcher [Wed Sep 21 15:57:01 KST 2022]TRACE :      port : 60103
+Launcher [Wed Sep 21 15:57:01 KST 2022]TRACE :      timeout : 60
+Launcher [Wed Sep 21 15:57:01 KST 2022]TRACE :      syncmode : ASYNC
+CMC [Wed Sep 21 15:57:01 KST 2022]DEBUG : [MessageReader-127.0.0.1:60103]
+[2022-09-21 15:57:01:679][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getOracleTablespacePrivilege
+[2022-09-21 15:57:01:685][DEBUG] ==>  Preparing: SELECT 'OK' FROM SYS.DBA_TABLESPACES WHERE ROWNUM <= 1 
+[2022-09-21 15:57:01:685][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:01:690][DEBUG] <==      Total: 1
+[2022-09-21 15:57:01:696][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvs
+[2022-09-21 15:57:01:697][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME IN ('WEB', 'VIEW', 'ANALYZER') 
+[2022-09-21 15:57:01:697][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:01:701][DEBUG] <==      Total: 57
+CMC [Wed Sep 21 15:57:02 KST 2022]DEBUG : [MessageWriter-127.0.0.1:60103]
+[2022-09-21 15:57:02:651][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvVal
+[2022-09-21 15:57:02:652][DEBUG] ==>  Preparing: SELECT OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:02:652][DEBUG] ==> Parameters: REPOSITORY(String), PRODUCT_NAME(String)
+[2022-09-21 15:57:02:654][DEBUG] <==      Total: 1
+[2022-09-21 15:57:02:661][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvVal
+[2022-09-21 15:57:02:662][DEBUG] ==>  Preparing: SELECT OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:02:662][DEBUG] ==> Parameters: REPOSITORY(String), DATA_LANG(String)
+[2022-09-21 15:57:02:664][DEBUG] <==      Total: 1
+[2022-09-21 15:57:02:677][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getCollectTypes
+[2022-09-21 15:57:02:678][DEBUG] ==>  Preparing: SELECT CODE FROM CM_CODE_INFO WHERE CODE_CATEGORY = 411 ORDER BY CODE 
+[2022-09-21 15:57:02:678][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:02:680][DEBUG] <==      Total: 31
+[2022-09-21 15:57:02:812][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getStatActives
+[2022-09-21 15:57:02:812][DEBUG] ==>  Preparing: SELECT STAT_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_STAT WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY STAT_ID 
+[2022-09-21 15:57:02:812][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:02:815][DEBUG] <==      Total: 75
+[2022-09-21 15:57:02:818][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardPageActives
+[2022-09-21 15:57:02:818][DEBUG] ==>  Preparing: SELECT PAGE_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD_PAGE WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY PAGE_ID 
+[2022-09-21 15:57:02:818][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:02:819][DEBUG] <==      Total: 5
+[2022-09-21 15:57:02:822][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardCategoryActives
+[2022-09-21 15:57:02:822][DEBUG] ==>  Preparing: SELECT CATEGORY_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD_CATEGORY WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY CATEGORY_ID 
+[2022-09-21 15:57:02:822][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:02:823][DEBUG] <==      Total: 5
+[2022-09-21 15:57:02:826][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardActives
+[2022-09-21 15:57:02:826][DEBUG] ==>  Preparing: SELECT DASHBOARD_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY DASHBOARD_ID 
+[2022-09-21 15:57:02:826][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:02:828][DEBUG] <==      Total: 60
+[2022-09-21 15:57:02:831][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getReportActives
+[2022-09-21 15:57:02:832][DEBUG] ==>  Preparing: SELECT REPORT_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM DC_REPORT_INFO WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY REPORT_ID 
+[2022-09-21 15:57:02:832][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:02:834][DEBUG] <==      Total: 80
+[2022-09-21 15:57:02:983][WARN ] Cache 'null' is set to eternal but also has TTI/TTL set.  To avoid this warning, clean up the config removing conflicting values of eternal, TTI and TTL. Effective configuration for Cache 'null' will be eternal='true', timeToIdleSeconds='0', timeToLiveSeconds='0'.
+[2022-09-21 15:57:03:696][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.SigninDao.getUserById
+[2022-09-21 15:57:03:698][DEBUG] ==>  Preparing: SELECT /*+ OPTIMIZER_FEATURES_ENABLE('11.2.0.4') ORDERED LEADING (U) USE_NL (U UM UR UP UG GR GP) */ U.USER_ID , U.USER_NM , U.LOGIN_ID , U.USER_PWD , U.DEP_ID , U.POSITION_CODE , U.EMAIL , U.CELL_PHONE , U.ACTIVE_YN , U.DEL_YN , U.CRE_DT , U.CRE_ID , U.DEL_DT , U.DEL_ID , U.LAST_USE_DATE , U.LAST_USE_IP , U.PWD_FAIL_COUNT , UM.PWD_FAIL_DT , UM.PWD_UPD_DT , UM.MULTI_LOGIN , UM.AUTH_IP , UM.API_KEY , UM.API_KEY_EXP_DT , MAX(CASE WHEN U.USER_ID = 0 OR UP.PERMISSION_CODE = 1000001 OR GP.PERMISSION_CODE = 1000001 THEN 'Y' ELSE 'N' END) AS SYSTEM_MANAGER , MAX(CASE WHEN UP.PERMISSION_CODE = 2000001 OR GP.PERMISSION_CODE = 2000001 THEN 'Y' ELSE 'N' END) AS PROJECT_MANAGER FROM C_USER U LEFT OUTER JOIN CM_USER_META UM ON U.USER_ID = UM.USER_ID LEFT OUTER JOIN CM_USER_BIZ_ROLE UR ON U.USER_ID = UR.USER_ID LEFT OUTER JOIN CM_ROLE_PERMISSION UP ON UR.ROLE_ID = UP.ROLE_ID AND UP.PERMISSION_CODE IN (1000001, 2000001) LEFT OUTER JOIN C_USER_GROUP_ROLE UG ON U.USER_ID = UG.USER_ID LEFT OUTER JOIN CM_GROUP_BIZ_ROLE GR ON UG.GROUP_ID = GR.GROUP_ID LEFT OUTER JOIN CM_ROLE_PERMISSION GP ON GR.ROLE_ID = GP.ROLE_ID AND GP.PERMISSION_CODE IN (1000001, 2000001) WHERE U.LOGIN_ID = ? GROUP BY U.USER_ID, U.USER_NM, U.LOGIN_ID, U.USER_PWD, U.DEP_ID, U.POSITION_CODE, U.EMAIL, U.CELL_PHONE, U.ACTIVE_YN, U.DEL_YN, U.CRE_DT, U.CRE_ID, U.DEL_DT, U.DEL_ID, U.LAST_USE_DATE , U.LAST_USE_IP, U.PWD_FAIL_COUNT, UM.PWD_FAIL_DT, UM.PWD_UPD_DT, UM.MULTI_LOGIN, UM.AUTH_IP, UM.API_KEY, UM.API_KEY_EXP_DT 
+[2022-09-21 15:57:03:698][DEBUG] ==> Parameters: sky6326(String)
+[2022-09-21 15:57:03:704][DEBUG] <==      Total: 1
+[2022-09-21 15:57:03:720][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnv
+[2022-09-21 15:57:03:721][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:03:721][DEBUG] ==> Parameters: VIEW(String), LOGIN.PASSWORD_FAIL_PENALTY_SEC(String)
+[2022-09-21 15:57:03:722][DEBUG] <==      Total: 1
+[2022-09-21 15:57:03:725][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnv
+[2022-09-21 15:57:03:725][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:03:726][DEBUG] ==> Parameters: VIEW(String), LOGIN.PASSWORD_SALT_YN(String)
+[2022-09-21 15:57:03:727][DEBUG] <==      Total: 1
+[2022-09-21 15:57:03:729][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnv
+[2022-09-21 15:57:03:729][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:03:730][DEBUG] ==> Parameters: VIEW(String), LOGIN.CHANGE_PASSWORD_TERM(String)
+[2022-09-21 15:57:03:731][DEBUG] <==      Total: 1
+[2022-09-21 15:57:03:732][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.SessionUtilDao.getSessionById
+[2022-09-21 15:57:03:733][DEBUG] ==>  Preparing: SELECT DISTINCT U.USER_ID , U.USER_NM , U.LOGIN_ID , U.EMAIL , UM.MULTI_LOGIN FROM C_USER U LEFT OUTER JOIN CM_USER_META UM ON U.USER_ID = UM.USER_ID WHERE U.LOGIN_ID = ? 
+[2022-09-21 15:57:03:733][DEBUG] ==> Parameters: sky6326(String)
+[2022-09-21 15:57:03:734][DEBUG] <==      Total: 1
+[2022-09-21 15:57:03:738][DEBUG] Add Session:17C381202F882BDAC2231A89D50FA68B
+[2022-09-21 15:57:03:739][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.SigninDao.updateUserBySignin
+[2022-09-21 15:57:03:740][DEBUG] ==>  Preparing: UPDATE C_USER SET ACTIVE_YN = ? , LAST_USE_DATE = ? , LAST_USE_IP = ? , PWD_FAIL_COUNT = ? WHERE USER_ID = ? 
+[2022-09-21 15:57:03:740][DEBUG] ==> Parameters: Y(String), 20220921155703(String), 172.16.18.101(String), 0(String), 2(String)
+[2022-09-21 15:57:03:742][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:03:742][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.SigninDao.updateUserMetaBySignin
+[2022-09-21 15:57:03:743][DEBUG] ==>  Preparing: UPDATE CM_USER_META SET PWD_FAIL_DT = ? WHERE USER_ID = ? 
+[2022-09-21 15:57:03:743][DEBUG] ==> Parameters: 20220916150051(String), 2(String)
+[2022-09-21 15:57:03:744][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:03:854][INFO ] Will secure any request with [org.springframework.security.web.context.SecurityContextPersistenceFilter@35b56df4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f4d752d, org.springframework.security.web.header.HeaderWriterFilter@69f7274a, org.springframework.security.web.csrf.CsrfFilter@416a8a44, org.springframework.security.web.authentication.logout.LogoutFilter@5f2e8550, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b0e7785, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4b13ded9, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5ebe4555, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@75915fd7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1dcbacbf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48fb5cc9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64433c6e, org.springframework.security.web.session.SessionManagementFilter@1b53a8d6, org.springframework.security.web.access.ExceptionTranslationFilter@5bbd4157, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@49b253fd]
+[2022-09-21 15:57:03:861][INFO ] Checking whether login URL '/login' is accessible with your configuration
+[2022-09-21 15:57:03:882][INFO ] Root WebApplicationContext initialized in 3650 ms
+21-Sep-2022 15:57:03.891 정보 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring DispatcherServlet 'mvc-dispatcher'
+[2022-09-21 15:57:03:891][INFO ] Initializing Servlet 'mvc-dispatcher'
+[2022-09-21 15:57:04:013][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.SessionUtilDao.getUserPermissionCodes
+[2022-09-21 15:57:04:013][DEBUG] ==>  Preparing: SELECT CODE AS PERMISSION_CODE FROM CM_CODE_INFO WHERE CODE_CATEGORY = 401 AND 0 = ? UNION SELECT DISTINCT URP.PERMISSION_CODE FROM C_USER U JOIN CM_USER_BIZ_ROLE UR ON U.USER_ID = UR.USER_ID JOIN CM_ROLE_PERMISSION URP ON UR.ROLE_ID = URP.ROLE_ID WHERE U.USER_ID = ? UNION SELECT DISTINCT UGRP.PERMISSION_CODE FROM C_USER U JOIN C_USER_GROUP_ROLE UG ON U.USER_ID = UG.USER_ID JOIN CM_GROUP_BIZ_ROLE UGR ON UG.GROUP_ID = UGR.GROUP_ID JOIN CM_ROLE_PERMISSION UGRP ON UGR.ROLE_ID = UGRP.ROLE_ID WHERE U.USER_ID = ? ORDER BY PERMISSION_CODE 
+[2022-09-21 15:57:04:014][DEBUG] ==> Parameters: 2(String), 2(String), 2(String)
+[2022-09-21 15:57:04:014][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnvs
+[2022-09-21 15:57:04:015][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME IN ('VIEW', 'WEB') 
+[2022-09-21 15:57:04:015][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:04:020][DEBUG] <==      Total: 53
+[2022-09-21 15:57:04:021][DEBUG] <==      Total: 9
+[2022-09-21 15:57:04:022][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getBaseProductInfo
+[2022-09-21 15:57:04:022][DEBUG] ==>  Preparing: SELECT OPTION_VALUE AS PRODUCT_INFO FROM CM_ENV_OPTION WHERE SYSTEM_NAME = 'REPOSITORY' AND OPTION_NAME = 'PRODUCT_INFO' 
+[2022-09-21 15:57:04:022][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:04:024][DEBUG] <==      Total: 1
+[2022-09-21 15:57:04:029][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.updateEnv
+[2022-09-21 15:57:04:029][DEBUG] ==>  Preparing: UPDATE CM_ENV_OPTION SET OPTION_VALUE = ? WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:04:030][DEBUG] ==> Parameters: {"name":"AppGovernance","version":"10.0.0.0","nick":"AG","subs":[{"name":"ChangeMiner","version":"10.0.0.0","nick":"CM"},{"name":"CodePrism","version":"5.2.0.0","nick":"CP"},{"name":"DataHawk","version":"5.0.0.0","nick":"DL"},{"name":"GapMiner","version":"3.0.0.0","nick":"GM"},{"name":"SQLMiner","version":"3.0.0.0","nick":"SM"},{"name":"SecurityPrism","version":"5.2.0.0","nick":"SP"}]}(String), WEB(String), LAST_PRODUCT_INFO(String)
+[2022-09-21 15:57:04:031][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:04:044][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.I18nDao.getCodes
+[2022-09-21 15:57:04:044][DEBUG] ==>  Preparing: SELECT CODE AS K, CODE_VALUE AS V FROM CM_CODE_INFO WHERE CODE_CATEGORY = ? ORDER BY K 
+[2022-09-21 15:57:04:045][DEBUG] ==> Parameters: 422(Integer)
+[2022-09-21 15:57:04:050][DEBUG] <==      Total: 132
+[2022-09-21 15:57:04:052][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.I18nDao.getTypes
+[2022-09-21 15:57:04:052][DEBUG] ==>  Preparing: SELECT TYPE_ID AS K, TYPE_NAME AS V FROM CM_TYPE ORDER BY K 
+[2022-09-21 15:57:04:052][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:04:065][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.SessionUtilDao.getUserPermissionCodes
+[2022-09-21 15:57:04:066][DEBUG] ==>  Preparing: SELECT CODE AS PERMISSION_CODE FROM CM_CODE_INFO WHERE CODE_CATEGORY = 401 AND 0 = ? UNION SELECT DISTINCT URP.PERMISSION_CODE FROM C_USER U JOIN CM_USER_BIZ_ROLE UR ON U.USER_ID = UR.USER_ID JOIN CM_ROLE_PERMISSION URP ON UR.ROLE_ID = URP.ROLE_ID WHERE U.USER_ID = ? UNION SELECT DISTINCT UGRP.PERMISSION_CODE FROM C_USER U JOIN C_USER_GROUP_ROLE UG ON U.USER_ID = UG.USER_ID JOIN CM_GROUP_BIZ_ROLE UGR ON UG.GROUP_ID = UGR.GROUP_ID JOIN CM_ROLE_PERMISSION UGRP ON UGR.ROLE_ID = UGRP.ROLE_ID WHERE U.USER_ID = ? ORDER BY PERMISSION_CODE 
+[2022-09-21 15:57:04:066][DEBUG] ==> Parameters: 2(String), 2(String), 2(String)
+[2022-09-21 15:57:04:070][DEBUG] <==      Total: 9
+[2022-09-21 15:57:04:071][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.issue.IssueDao.getNewIssueCount
+[2022-09-21 15:57:04:076][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnv
+[2022-09-21 15:57:04:077][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:04:077][DEBUG] ==>  Preparing: SELECT COUNT(DISTINCT I.ISSUE_ID) AS CNT FROM CM_COLLABO_ISSUE I JOIN (SELECT A.ISSUE_ID FROM CM_COLLABO_ASSIGN A WHERE A.ASSIGN_TYPE = 'A' AND A.TARGET_TYPE = 'U' AND A.TARGET_ID = ? UNION SELECT A.ISSUE_ID FROM CM_COLLABO_ASSIGN A JOIN C_USER_GROUP_ROLE G ON A.TARGET_ID = G.GROUP_ID AND G.USER_ID = ? WHERE A.ASSIGN_TYPE = 'A' AND A.TARGET_TYPE = 'G' UNION SELECT A.ISSUE_ID FROM CM_COLLABO_ASSIGN A JOIN CM_USER_BIZ_ROLE R ON A.TARGET_ID = R.ROLE_ID AND R.USER_ID = ? WHERE A.ASSIGN_TYPE = 'A' AND A.TARGET_TYPE = 'R' UNION SELECT A.ISSUE_ID FROM CM_COLLABO_ASSIGN A JOIN CM_GROUP_BIZ_ROLE R ON A.TARGET_ID = R.ROLE_ID JOIN C_USER_GROUP_ROLE G ON R.GROUP_ID = G.GROUP_ID AND G.USER_ID = ? WHERE A.ASSIGN_TYPE = 'A' AND A.TARGET_TYPE = 'R') A ON I.ISSUE_ID = A.ISSUE_ID LEFT OUTER JOIN CM_COLLABO_READ R ON I.ISSUE_ID = R.ISSUE_ID AND R.USER_ID = ? WHERE I.DEL_YN = 'N' AND R.USER_ID IS NULL 
+[2022-09-21 15:57:04:077][DEBUG] ==> Parameters: VIEW(String), ACTION_LOG.LOGGING_YN(String)
+[2022-09-21 15:57:04:077][DEBUG] ==> Parameters: 2(String), 2(String), 2(String), 2(String), 2(String)
+[2022-09-21 15:57:04:078][DEBUG] <==      Total: 1
+[2022-09-21 15:57:04:078][DEBUG] <==      Total: 1710
+[2022-09-21 15:57:04:079][DEBUG] <==      Total: 1
+[2022-09-21 15:57:04:080][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnv
+[2022-09-21 15:57:04:081][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:04:081][DEBUG] ==> Parameters: VIEW(String), ACTION_LOG.RETENTION_PERIOD(String)
+[2022-09-21 15:57:04:082][DEBUG] <==      Total: 1
+[2022-09-21 15:57:04:084][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.AccessLogDao.deleteLog
+[2022-09-21 15:57:04:085][DEBUG] ==>  Preparing: DELETE FROM C_ACCESS_LOG_UI WHERE ACCESS_DATE < ? 
+[2022-09-21 15:57:04:085][DEBUG] ==> Parameters: 20220623(String)
+[2022-09-21 15:57:04:087][DEBUG] <==    Updates: 0
+[2022-09-21 15:57:04:088][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.AccessLogDao.insertLog
+[2022-09-21 15:57:04:088][DEBUG] ==>  Preparing: INSERT INTO C_ACCESS_LOG_UI (ACCESS_DATE, ACCESS_TIME, MODULE_NAME, ACTION_NAME, DETAIL_DATA, USER_ID, USER_IP) VALUES (?, ?, ?, ?, ?, ?, ?) 
+[2022-09-21 15:57:04:088][DEBUG] ==> Parameters: 20220921(String), 155704(String), CM_ADMIN(String), 프로젝트(String), (String), 2(String), 172.16.18.101(String)
+[2022-09-21 15:57:04:090][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:04:172][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.SessionUtilDao.getUserPermissionCodes
+[2022-09-21 15:57:04:172][DEBUG] ==>  Preparing: SELECT CODE AS PERMISSION_CODE FROM CM_CODE_INFO WHERE CODE_CATEGORY = 401 AND 0 = ? UNION SELECT DISTINCT URP.PERMISSION_CODE FROM C_USER U JOIN CM_USER_BIZ_ROLE UR ON U.USER_ID = UR.USER_ID JOIN CM_ROLE_PERMISSION URP ON UR.ROLE_ID = URP.ROLE_ID WHERE U.USER_ID = ? UNION SELECT DISTINCT UGRP.PERMISSION_CODE FROM C_USER U JOIN C_USER_GROUP_ROLE UG ON U.USER_ID = UG.USER_ID JOIN CM_GROUP_BIZ_ROLE UGR ON UG.GROUP_ID = UGR.GROUP_ID JOIN CM_ROLE_PERMISSION UGRP ON UGR.ROLE_ID = UGRP.ROLE_ID WHERE U.USER_ID = ? ORDER BY PERMISSION_CODE 
+[2022-09-21 15:57:04:172][DEBUG] ==> Parameters: 2(String), 2(String), 2(String)
+[2022-09-21 15:57:04:175][DEBUG] <==      Total: 9
+[2022-09-21 15:57:04:176][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.project.ProjectDao.getCollectorInfo
+[2022-09-21 15:57:04:177][DEBUG] ==>  Preparing: SELECT R.PROJECT_ID , CC.CODE_VALUE FROM (SELECT P.PROJECT_ID , C.COLLECT_TYPE_CODE FROM CM_PROJECT P JOIN CM_COLLECT_INFO C ON P.SYSTEM_ID = C.SYSTEM_ID LEFT OUTER JOIN CM_JOB_LOG L ON C.JOB_ID = L.JOB_ID LEFT OUTER JOIN CM_JOB_STEP_LOG SL ON L.JOB_ID = SL.JOB_ID AND SL.JOB_STEP_CODE = 1000 GROUP BY P.PROJECT_ID, C.COLLECT_TYPE_CODE) R JOIN CM_CODE_INFO CC ON R.COLLECT_TYPE_CODE = CC.CODE AND CC.CODE_CATEGORY = 411 GROUP BY R.PROJECT_ID, CC.CODE_VALUE 
+[2022-09-21 15:57:04:177][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:04:191][DEBUG] <==      Total: 43
+[2022-09-21 15:57:04:193][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.SessionUtilDao.getUserPermissionCodes
+[2022-09-21 15:57:04:194][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.project.ProjectDao.getAnalyzerInfo
+[2022-09-21 15:57:04:195][DEBUG] ==>  Preparing: SELECT R.PROJECT_ID , CC.CODE_VALUE FROM (SELECT P.PROJECT_ID , A.COMPILER_CODE FROM CM_PROJECT P JOIN CM_ANALYZE_TYPE A ON P.ANALYZE_ID = A.ANALYZE_ID LEFT OUTER JOIN CM_JOB_LOG L ON A.JOB_ID = L.JOB_ID GROUP BY P.PROJECT_ID, A.COMPILER_CODE) R JOIN CM_CODE_INFO CC ON R.COMPILER_CODE = CC.CODE AND CC.CODE_CATEGORY = 422 GROUP BY R.PROJECT_ID, CC.CODE_VALUE 
+[2022-09-21 15:57:04:195][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:04:198][DEBUG] <==      Total: 80
+[2022-09-21 15:57:04:199][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.SessionUtilDao.getUserPermissionCodes
+[2022-09-21 15:57:04:200][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.project.ProjectDao.getProjectsWithSummary
+[2022-09-21 15:57:04:201][DEBUG] ==>  Preparing: SELECT P.PROJECT_ID , P.PROJECT_NAME , P.PROJECT_DESC , P.PROJECT_TYPE , P.PRT_PROJECT_ID , P.MTR_TYPE , P.SCHEDULE_ID , CASE WHEN AI.JOB_STATUS IS NULL OR CI.JOB_STATUS > AI.JOB_STATUS THEN CI.JOB_STATUS ELSE AI.JOB_STATUS END AS JOB_STATUS , CASE WHEN AI.END_DT IS NULL OR CI.END_DT > AI.END_DT THEN CI.END_DT ELSE AI.END_DT END AS END_DT FROM CM_PROJECT P LEFT OUTER JOIN (SELECT R.PROJECT_ID , MAX(R.JOB_STATUS) AS JOB_STATUS , MAX(R.END_DT) AS END_DT FROM (SELECT P.PROJECT_ID , C.COLLECT_TYPE_CODE , TO_NUMBER(MAX(CASE WHEN SL.STATUS_RETURN_CODE IS NULL THEN '0' WHEN SL.STATUS_RETURN_CODE = '2000' THEN '20' WHEN SL.STATUS_RETURN_CODE = '9000' THEN '30' ELSE SL.STATUS_RETURN_CODE END)) AS JOB_STATUS , MAX(CONCAT(L.END_DATE, L.END_TIME)) AS END_DT FROM CM_PROJECT P JOIN CM_COLLECT_INFO C ON P.SYSTEM_ID = C.SYSTEM_ID LEFT OUTER JOIN CM_JOB_LOG L ON C.JOB_ID = L.JOB_ID LEFT OUTER JOIN CM_JOB_STEP_LOG SL ON L.JOB_ID = SL.JOB_ID AND SL.JOB_STEP_CODE = 1000 GROUP BY P.PROJECT_ID, C.COLLECT_TYPE_CODE) R JOIN CM_CODE_INFO CC ON R.COLLECT_TYPE_CODE = CC.CODE AND CC.CODE_CATEGORY = 411 GROUP BY R.PROJECT_ID) CI ON P.PROJECT_ID = CI.PROJECT_ID LEFT OUTER JOIN (SELECT R.PROJECT_ID , MAX(R.JOB_STATUS) AS JOB_STATUS , MAX(R.END_DT) AS END_DT FROM (SELECT P.PROJECT_ID , A.COMPILER_CODE , MAX(CASE WHEN L.JOB_STATUS IS NULL THEN 0 WHEN L.JOB_STATUS = 2000 THEN 20 WHEN L.JOB_STATUS = 9000 THEN 30 ELSE L.JOB_STATUS END) AS JOB_STATUS , MAX(CONCAT(L.END_DATE, L.END_TIME)) AS END_DT FROM CM_PROJECT P JOIN CM_ANALYZE_TYPE A ON P.ANALYZE_ID = A.ANALYZE_ID LEFT OUTER JOIN CM_JOB_LOG L ON A.JOB_ID = L.JOB_ID GROUP BY P.PROJECT_ID, A.COMPILER_CODE) R JOIN CM_CODE_INFO CC ON R.COMPILER_CODE = CC.CODE AND CC.CODE_CATEGORY = 422 GROUP BY R.PROJECT_ID) AI ON P.PROJECT_ID = AI.PROJECT_ID WHERE P.DEL_YN = 'N' ORDER BY P.PROJECT_NAME, P.PROJECT_ID 
+[2022-09-21 15:57:04:201][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:04:223][DEBUG] <==      Total: 28
+Launcher [Wed Sep 21 15:57:04 KST 2022]INFO  : contextInitialized called
+Launcher [Wed Sep 21 15:57:04 KST 2022]TRACE : jndi_name : IWIZARD
+Launcher [Wed Sep 21 15:57:04 KST 2022]TRACE : ipaddress : 127.0.0.1
+Launcher [Wed Sep 21 15:57:04 KST 2022]TRACE :      port : 60103
+Launcher [Wed Sep 21 15:57:04 KST 2022]TRACE :      timeout : 60
+Launcher [Wed Sep 21 15:57:04 KST 2022]TRACE :      syncmode : ASYNC
+CMC [Wed Sep 21 15:57:04 KST 2022]DEBUG : [MessageReader-127.0.0.1:60103]
+[2022-09-21 15:57:04:429][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getOracleTablespacePrivilege
+[2022-09-21 15:57:04:429][DEBUG] ==>  Preparing: SELECT 'OK' FROM SYS.DBA_TABLESPACES WHERE ROWNUM <= 1 
+[2022-09-21 15:57:04:429][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:04:433][DEBUG] <==      Total: 1
+[2022-09-21 15:57:04:446][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvs
+[2022-09-21 15:57:04:447][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME IN ('WEB', 'VIEW', 'ANALYZER') 
+[2022-09-21 15:57:04:447][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:04:450][DEBUG] <==      Total: 57
+CMC [Wed Sep 21 15:57:05 KST 2022]DEBUG : [MessageWriter-127.0.0.1:60103]
+[2022-09-21 15:57:05:430][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvVal
+[2022-09-21 15:57:05:430][DEBUG] ==>  Preparing: SELECT OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:05:430][DEBUG] ==> Parameters: REPOSITORY(String), PRODUCT_NAME(String)
+[2022-09-21 15:57:05:432][DEBUG] <==      Total: 1
+[2022-09-21 15:57:05:439][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnvVal
+[2022-09-21 15:57:05:440][DEBUG] ==>  Preparing: SELECT OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:05:441][DEBUG] ==> Parameters: REPOSITORY(String), DATA_LANG(String)
+[2022-09-21 15:57:05:442][DEBUG] <==      Total: 1
+[2022-09-21 15:57:05:449][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getStatActives
+[2022-09-21 15:57:05:450][DEBUG] ==>  Preparing: SELECT STAT_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_STAT WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY STAT_ID 
+[2022-09-21 15:57:05:450][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:05:452][DEBUG] <==      Total: 75
+[2022-09-21 15:57:05:460][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardPageActives
+[2022-09-21 15:57:05:460][DEBUG] ==>  Preparing: SELECT PAGE_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD_PAGE WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY PAGE_ID 
+[2022-09-21 15:57:05:460][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:05:462][DEBUG] <==      Total: 5
+[2022-09-21 15:57:05:468][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardCategoryActives
+[2022-09-21 15:57:05:469][DEBUG] ==>  Preparing: SELECT CATEGORY_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD_CATEGORY WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY CATEGORY_ID 
+[2022-09-21 15:57:05:469][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:05:470][DEBUG] <==      Total: 5
+[2022-09-21 15:57:05:475][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getDashboardActives
+[2022-09-21 15:57:05:475][DEBUG] ==>  Preparing: SELECT DASHBOARD_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM CM_DASHBOARD WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY DASHBOARD_ID 
+[2022-09-21 15:57:05:475][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:05:477][DEBUG] <==      Total: 60
+[2022-09-21 15:57:05:481][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.LicenseUtilDao.getReportActives
+[2022-09-21 15:57:05:482][DEBUG] ==>  Preparing: SELECT REPORT_ID AS ID , LICENSE_CODE , ACTIVE_YN FROM DC_REPORT_INFO WHERE LICENSE_CODE IS NOT NULL OR ACTIVE_YN IS NULL ORDER BY REPORT_ID 
+[2022-09-21 15:57:05:482][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:05:484][DEBUG] <==      Total: 80
+[2022-09-21 15:57:05:528][WARN ] Cache 'null' is set to eternal but also has TTI/TTL set.  To avoid this warning, clean up the config removing conflicting values of eternal, TTI and TTL. Effective configuration for Cache 'null' will be eternal='true', timeToIdleSeconds='0', timeToLiveSeconds='0'.
+[2022-09-21 15:57:05:698][INFO ] Completed initialization in 1807 ms
+21-Sep-2022 15:57:05.701 정보 [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio2-60104"]을(를) 시작합니다.
+21-Sep-2022 15:57:05.702 정보 [main] org.apache.catalina.startup.Catalina.start Server startup in 22240 ms
+[2022-09-21 15:57:06:611][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnv
+[2022-09-21 15:57:06:611][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:611][DEBUG] ==> Parameters: VIEW(String), ACTION_LOG.LOGGING_YN(String)
+[2022-09-21 15:57:06:613][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:614][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.GroupDao.getGroups
+[2022-09-21 15:57:06:614][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnv
+[2022-09-21 15:57:06:615][DEBUG] ==>  Preparing: SELECT G.GROUP_ID , G.GROUP_NM , G.GROUP_DESC FROM C_GROUP G ORDER BY G.GROUP_NM 
+[2022-09-21 15:57:06:615][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:615][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:06:615][DEBUG] ==> Parameters: VIEW(String), ACTION_LOG.RETENTION_PERIOD(String)
+[2022-09-21 15:57:06:615][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getPositions
+[2022-09-21 15:57:06:615][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserInfos
+[2022-09-21 15:57:06:616][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.SessionUtilDao.getUserPermissionCodes
+[2022-09-21 15:57:06:616][DEBUG] ==>  Preparing: SELECT N.CD_ID , N.DISPLAY_NM FROM C_CD C JOIN C_CD_NM N ON C.CD_ID = N.CD_ID WHERE C.CD_GRP_ID = '2100' AND LANG_CD = ? ORDER BY C.CD_ID 
+[2022-09-21 15:57:06:616][DEBUG] ==> Parameters: ko-KR(String)
+[2022-09-21 15:57:06:616][DEBUG] ==>  Preparing: SELECT CODE AS PERMISSION_CODE FROM CM_CODE_INFO WHERE CODE_CATEGORY = 401 AND 0 = ? UNION SELECT DISTINCT URP.PERMISSION_CODE FROM C_USER U JOIN CM_USER_BIZ_ROLE UR ON U.USER_ID = UR.USER_ID JOIN CM_ROLE_PERMISSION URP ON UR.ROLE_ID = URP.ROLE_ID WHERE U.USER_ID = ? UNION SELECT DISTINCT UGRP.PERMISSION_CODE FROM C_USER U JOIN C_USER_GROUP_ROLE UG ON U.USER_ID = UG.USER_ID JOIN CM_GROUP_BIZ_ROLE UGR ON UG.GROUP_ID = UGR.GROUP_ID JOIN CM_ROLE_PERMISSION UGRP ON UGR.ROLE_ID = UGRP.ROLE_ID WHERE U.USER_ID = ? ORDER BY PERMISSION_CODE 
+[2022-09-21 15:57:06:616][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.DepartmentDao.getDepartments
+[2022-09-21 15:57:06:616][DEBUG] ==> Parameters: 2(String), 2(String), 2(String)
+[2022-09-21 15:57:06:616][DEBUG] ==>  Preparing: SELECT DEP_ID , CASE WHEN PAR_DEP_ID = -1 THEN NULL ELSE PAR_DEP_ID END AS PAR_DEP_ID , DEP_TITLE , DEP_DESC , DEP_TP_CD FROM C_DEP_INFO ORDER BY DEP_TITLE 
+[2022-09-21 15:57:06:616][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:06:617][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:617][DEBUG] ==>  Preparing: SELECT U.USER_ID , U.USER_NM , U.LOGIN_ID , U.DEP_ID , D.DEP_TITLE , U.POSITION_CODE , PN.DISPLAY_NM AS POSITION_NAME , U.EMAIL , U.CELL_PHONE , U.ACTIVE_YN , U.DEL_YN , U.CRE_DT , U.LAST_USE_DATE , U.LAST_USE_IP , UM.MULTI_LOGIN , UM.AUTH_IP , UM.API_KEY , UM.API_KEY_EXP_DT FROM C_USER U LEFT OUTER JOIN CM_USER_META UM ON U.USER_ID = UM.USER_ID JOIN C_DEP_INFO D ON U.DEP_ID = D.DEP_ID LEFT OUTER JOIN C_CD_NM PN ON U.POSITION_CODE = PN.CD_ID AND PN.LANG_CD = ? ORDER BY LOGIN_ID 
+[2022-09-21 15:57:06:617][DEBUG] ==> Parameters: ko-KR(String)
+[2022-09-21 15:57:06:620][DEBUG] <==      Total: 9
+[2022-09-21 15:57:06:621][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.AccessLogDao.insertLog
+[2022-09-21 15:57:06:621][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.project.ProjectDao.getProjects
+[2022-09-21 15:57:06:622][DEBUG] ==>  Preparing: INSERT INTO C_ACCESS_LOG_UI (ACCESS_DATE, ACCESS_TIME, MODULE_NAME, ACTION_NAME, DETAIL_DATA, USER_ID, USER_IP) VALUES (?, ?, ?, ?, ?, ?, ?) 
+[2022-09-21 15:57:06:622][DEBUG] ==> Parameters: 20220921(String), 155706(String), CM_ADMIN(String), 사용자/권한/사용자(String), (String), 2(String), 172.16.18.101(String)
+[2022-09-21 15:57:06:622][DEBUG] ==>  Preparing: SELECT P.PROJECT_ID , P.PROJECT_NAME , P.PROJECT_DESC , P.PROJECT_TYPE , P.PRT_PROJECT_ID , P.MTR_TYPE , P.SCHEDULE_ID FROM CM_PROJECT P WHERE P.DEL_YN = 'N' ORDER BY P.PROJECT_NAME 
+[2022-09-21 15:57:06:622][DEBUG] <==      Total: 2
+[2022-09-21 15:57:06:622][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:06:623][DEBUG] <==      Total: 3
+[2022-09-21 15:57:06:624][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:06:624][DEBUG] <==      Total: 28
+[2022-09-21 15:57:06:625][DEBUG] <==      Total: 7
+[2022-09-21 15:57:06:627][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:627][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:627][DEBUG] ==> Parameters: VIEW(String), LOGIN_ID_RULE.LOGIN_ID_MIN_LENGTH(String)
+[2022-09-21 15:57:06:629][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.RoleDao.getRoles
+[2022-09-21 15:57:06:629][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:629][DEBUG] <==      Total: 7
+[2022-09-21 15:57:06:629][DEBUG] ==>  Preparing: SELECT R.ROLE_ID , R.ROLE_NAME , R.ROLE_DESC , P.PERMISSION_CODE FROM CM_ROLE R LEFT OUTER JOIN CM_ROLE_PERMISSION P ON R.ROLE_ID = P.ROLE_ID ORDER BY R.ROLE_NAME 
+[2022-09-21 15:57:06:630][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:06:631][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:631][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:631][DEBUG] ==> Parameters: VIEW(String), LOGIN_ID_RULE.LOGIN_ID_MAX_LENGTH(String)
+[2022-09-21 15:57:06:632][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:634][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:634][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:634][DEBUG] ==> Parameters: VIEW(String), LOGIN_ID_RULE.LOGIN_ID_NOT_INCLUDE_NUMBER(String)
+[2022-09-21 15:57:06:635][DEBUG] <==      Total: 9
+[2022-09-21 15:57:06:635][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:636][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:636][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:637][DEBUG] ==> Parameters: VIEW(String), LOGIN_ID_RULE.LOGIN_ID_NOT_INCLUDE_SYMBOL(String)
+[2022-09-21 15:57:06:638][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:639][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:639][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:639][DEBUG] ==> Parameters: VIEW(String), PASSWORD_RULE.PASSWORD_MIN_LENGTH(String)
+[2022-09-21 15:57:06:640][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:641][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:641][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:642][DEBUG] ==> Parameters: VIEW(String), PASSWORD_RULE.PASSWORD_MAX_LENGTH(String)
+[2022-09-21 15:57:06:642][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:643][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:644][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:644][DEBUG] ==> Parameters: VIEW(String), PASSWORD_RULE.PASSWORD_USE_LOGIN_ID(String)
+[2022-09-21 15:57:06:645][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:645][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:646][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:646][DEBUG] ==> Parameters: VIEW(String), PASSWORD_RULE.PASSWORD_MUST_INCLUDE_NUMBER(String)
+[2022-09-21 15:57:06:647][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:648][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:648][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:648][DEBUG] ==> Parameters: VIEW(String), PASSWORD_RULE.PASSWORD_MUST_INCLUDE_SYMBOL(String)
+[2022-09-21 15:57:06:649][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:650][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:650][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:650][DEBUG] ==> Parameters: VIEW(String), PASSWORD_RULE.PASSWORD_MUST_INCLUDE_ALPHABET(String)
+[2022-09-21 15:57:06:651][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:652][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:652][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:652][DEBUG] ==> Parameters: VIEW(String), PASSWORD_RULE.PASSWORD_MUST_INCLUDE_LOWER_CASE(String)
+[2022-09-21 15:57:06:653][DEBUG] <==      Total: 1
+[2022-09-21 15:57:06:654][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.com.EnvironmentDao.getEnv
+[2022-09-21 15:57:06:654][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:06:654][DEBUG] ==> Parameters: VIEW(String), PASSWORD_RULE.PASSWORD_MUST_INCLUDE_UPPER_CASE(String)
+[2022-09-21 15:57:06:655][DEBUG] <==      Total: 1
+[2022-09-21 15:57:10:001][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getNewUserId
+[2022-09-21 15:57:10:002][DEBUG] ==>  Preparing: SELECT C_USER_SEQ.NEXTVAL AS USER_ID FROM DUAL 
+[2022-09-21 15:57:10:002][DEBUG] ==> Parameters: 
+[2022-09-21 15:57:10:010][DEBUG] <==      Total: 1
+[2022-09-21 15:57:10:024][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnv
+[2022-09-21 15:57:10:025][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:10:025][DEBUG] ==> Parameters: VIEW(String), LOGIN.PASSWORD_SALT_YN(String)
+[2022-09-21 15:57:10:027][DEBUG] <==      Total: 1
+[2022-09-21 15:57:10:029][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.insertUser
+[2022-09-21 15:57:10:029][DEBUG] ==>  Preparing: INSERT INTO C_USER (USER_ID, USER_NM, LOGIN_ID, USER_PWD, DEP_ID, POSITION_CODE, EMAIL, CELL_PHONE, ACTIVE_YN, PWD_FAIL_COUNT, CRE_ID, CRE_DT, DEL_YN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, 'N') 
+[2022-09-21 15:57:10:029][DEBUG] ==> Parameters: 82(String), {DES:iEiwo2t8YyAgAWMp3KOf6g==}(String), New Login ID 2(String), MDVjNGJlMjAyY2NlOTdlMWJhNzJkZWFmOWY2ZGU2YTdkOTMxYzlkOTY1ODhjY2RkNWMyYzg5YjM1MDlhYTFhOQ==(String), 0(Integer), 2101(Integer), null, null, Y(String), 2(String), 20220921155710(String)
+[2022-09-21 15:57:10:067][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:10:067][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.insertUserMeta
+[2022-09-21 15:57:10:067][DEBUG] ==>  Preparing: INSERT INTO CM_USER_META(USER_ID, PWD_UPD_DT, MULTI_LOGIN, AUTH_IP, API_KEY_EXP_DT) VALUES (?, ?, ?, ?, ?) 
+[2022-09-21 15:57:10:067][DEBUG] ==> Parameters: 82(String), 20220921155710(String), Y(String), null, null
+[2022-09-21 15:57:10:092][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:10:092][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.insertUserReportAuth
+[2022-09-21 15:57:10:093][DEBUG] ==>  Preparing: INSERT INTO CM_DC_REPORT_AUTH(REPORT_ID, AUTH_TYPE, AUTH_ID) SELECT REPORT_ID, 'U', ? FROM DC_REPORT_INFO WHERE REPORT_TYPE_CD IN (1, 2) AND DEL_YN = 'N' 
+[2022-09-21 15:57:10:093][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:10:126][DEBUG] <==    Updates: 66
+[2022-09-21 15:57:10:126][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserInfo
+[2022-09-21 15:57:10:126][DEBUG] ==>  Preparing: SELECT U.USER_ID , U.USER_NM , U.LOGIN_ID , U.DEP_ID , D.DEP_TITLE , U.POSITION_CODE , PN.DISPLAY_NM AS POSITION_NAME , U.EMAIL , U.CELL_PHONE , U.ACTIVE_YN , U.DEL_YN , U.CRE_DT , U.LAST_USE_DATE , U.LAST_USE_IP , UM.MULTI_LOGIN , UM.AUTH_IP , UM.API_KEY , UM.API_KEY_EXP_DT FROM C_USER U LEFT OUTER JOIN CM_USER_META UM ON U.USER_ID = UM.USER_ID JOIN C_DEP_INFO D ON U.DEP_ID = D.DEP_ID LEFT OUTER JOIN C_CD_NM PN ON U.POSITION_CODE = PN.CD_ID AND PN.LANG_CD = ? WHERE U.USER_ID = ? ORDER BY LOGIN_ID 
+[2022-09-21 15:57:10:126][DEBUG] ==> Parameters: ko-KR(String), 82(String)
+[2022-09-21 15:57:10:141][DEBUG] <==      Total: 1
+[2022-09-21 15:57:10:220][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserRoleMap
+[2022-09-21 15:57:10:220][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserGroupMap
+[2022-09-21 15:57:10:220][DEBUG] ==>  Preparing: SELECT G.GROUP_ID , G.GROUP_NM FROM C_USER_GROUP_ROLE M JOIN C_GROUP G ON M.GROUP_ID = G.GROUP_ID WHERE M.USER_ID = ? ORDER BY G.GROUP_NM 
+[2022-09-21 15:57:10:220][DEBUG] ==>  Preparing: SELECT DISTINCT BIZ_ID, BIZ_NM, ROLE_ID, ROLE_NAME FROM (SELECT B.BIZ_ID , B.BIZ_NM , R.ROLE_ID , R.ROLE_NAME FROM CM_USER_BIZ_ROLE U JOIN C_BIZ B ON U.BIZ_ID = B.BIZ_ID AND B.BIZ_ID > 0 AND B.DEL_YN = 'N' JOIN CM_ROLE R ON U.ROLE_ID = R.ROLE_ID WHERE U.USER_ID = ?) R ORDER BY R.BIZ_ID, R.ROLE_ID 
+[2022-09-21 15:57:10:220][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:10:220][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:10:228][DEBUG] <==      Total: 0
+[2022-09-21 15:57:10:230][DEBUG] <==      Total: 0
+[2022-09-21 15:57:28:830][DEBUG] ==>    QueryID: com.gtone.cm.common.dao.EnvironmentUtilDao.getEnv
+[2022-09-21 15:57:28:830][DEBUG] ==>  Preparing: SELECT CONCAT(CONCAT(SYSTEM_NAME, '.'), OPTION_NAME) AS OPTION_KEY , OPTION_VALUE FROM CM_ENV_OPTION WHERE SYSTEM_NAME = ? AND OPTION_NAME = ? 
+[2022-09-21 15:57:28:830][DEBUG] ==> Parameters: VIEW(String), LOGIN.PASSWORD_SALT_YN(String)
+[2022-09-21 15:57:28:832][DEBUG] <==      Total: 1
+[2022-09-21 15:57:28:837][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.updateUser
+[2022-09-21 15:57:28:838][DEBUG] ==>  Preparing: UPDATE C_USER SET UPD_ID = ? , UPD_DT = ? , LOGIN_ID = ? , USER_NM = ? , USER_PWD = ? , DEP_ID = ? , POSITION_CODE = ? , EMAIL = ? , CELL_PHONE = ? , ACTIVE_YN = ? , DEL_YN = ? WHERE USER_ID = ? 
+[2022-09-21 15:57:28:838][DEBUG] ==> Parameters: 2(String), 20220921155728(String), test1(String), {DES:Pn6+x/f8P5Svd5u1dQfaiQ==}(String), YTdiNTE3Yjk4NGExN2ZiYzMxYjQxN2YyNmNjZDAxY2MwMmNkYzlhYzQxMjNiNjI2MTQ5YmE4MTI0NDg4Nzk5YQ==(String), 0(Integer), null, null, null, Y(String), N(String), 82(String)
+[2022-09-21 15:57:28:845][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:28:845][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.updateUserMeta
+[2022-09-21 15:57:28:846][DEBUG] ==>  Preparing: UPDATE CM_USER_META SET MULTI_LOGIN = CASE WHEN ? IS NULL THEN MULTI_LOGIN ELSE ? END , PWD_UPD_DT = ? , AUTH_IP = ? WHERE USER_ID = ? 
+[2022-09-21 15:57:28:846][DEBUG] ==> Parameters: N(String), N(String), 20220921155728(String), null, 82(String)
+[2022-09-21 15:57:28:852][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:28:852][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserInfo
+[2022-09-21 15:57:28:852][DEBUG] ==>  Preparing: SELECT U.USER_ID , U.USER_NM , U.LOGIN_ID , U.DEP_ID , D.DEP_TITLE , U.POSITION_CODE , PN.DISPLAY_NM AS POSITION_NAME , U.EMAIL , U.CELL_PHONE , U.ACTIVE_YN , U.DEL_YN , U.CRE_DT , U.LAST_USE_DATE , U.LAST_USE_IP , UM.MULTI_LOGIN , UM.AUTH_IP , UM.API_KEY , UM.API_KEY_EXP_DT FROM C_USER U LEFT OUTER JOIN CM_USER_META UM ON U.USER_ID = UM.USER_ID JOIN C_DEP_INFO D ON U.DEP_ID = D.DEP_ID LEFT OUTER JOIN C_CD_NM PN ON U.POSITION_CODE = PN.CD_ID AND PN.LANG_CD = ? WHERE U.USER_ID = ? ORDER BY LOGIN_ID 
+[2022-09-21 15:57:28:852][DEBUG] ==> Parameters: ko-KR(String), 82(String)
+[2022-09-21 15:57:28:867][DEBUG] <==      Total: 1
+[2022-09-21 15:57:32:766][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.deleteUserGroupMap
+[2022-09-21 15:57:32:766][DEBUG] ==>  Preparing: DELETE FROM C_USER_GROUP_ROLE WHERE USER_ID = ? 
+[2022-09-21 15:57:32:766][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:32:773][DEBUG] <==    Updates: 0
+[2022-09-21 15:57:32:773][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.insertUserGroupMap
+[2022-09-21 15:57:32:773][DEBUG] ==>  Preparing: INSERT INTO C_USER_GROUP_ROLE (USER_ID, GROUP_ID, ROLE_ID, CRE_ID, CRE_DT) VALUES (?, ?, 0, ?, ?) 
+[2022-09-21 15:57:32:773][DEBUG] ==> Parameters: 82(String), 1(String), 2(String), 20220921155732(String)
+[2022-09-21 15:57:32:784][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:32:784][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserGroupMap
+[2022-09-21 15:57:32:784][DEBUG] ==>  Preparing: SELECT G.GROUP_ID , G.GROUP_NM FROM C_USER_GROUP_ROLE M JOIN C_GROUP G ON M.GROUP_ID = G.GROUP_ID WHERE M.USER_ID = ? ORDER BY G.GROUP_NM 
+[2022-09-21 15:57:32:784][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:32:793][DEBUG] <==      Total: 1
+[2022-09-21 15:57:38:427][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.deleteUserRoleMap
+[2022-09-21 15:57:38:427][DEBUG] ==>  Preparing: DELETE FROM CM_USER_BIZ_ROLE WHERE USER_ID = ? AND BIZ_ID = ? 
+[2022-09-21 15:57:38:427][DEBUG] ==> Parameters: 82(String), 11(String)
+[2022-09-21 15:57:38:434][DEBUG] <==    Updates: 0
+[2022-09-21 15:57:38:434][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.deleteUserRoleMapOld
+[2022-09-21 15:57:38:435][DEBUG] ==>  Preparing: DELETE FROM C_USER_BIZ_AUTH WHERE USER_ID = ? AND BIZ_ID = ? 
+[2022-09-21 15:57:38:435][DEBUG] ==> Parameters: 82(String), 11(String)
+[2022-09-21 15:57:38:441][DEBUG] <==    Updates: 0
+[2022-09-21 15:57:38:441][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.insertUserRoleMap
+[2022-09-21 15:57:38:442][DEBUG] ==>  Preparing: INSERT INTO CM_USER_BIZ_ROLE (USER_ID, BIZ_ID, ROLE_ID) VALUES (?, ?, ?) 
+[2022-09-21 15:57:38:442][DEBUG] ==> Parameters: 82(String), 11(String), 0(String)
+[2022-09-21 15:57:38:445][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:38:445][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.insertUserRoleMapOld
+[2022-09-21 15:57:38:446][DEBUG] ==>  Preparing: INSERT INTO C_USER_BIZ_AUTH (PKG_ID, PAR_BIZ_ID, BIZ_ID, USER_ID, AUTH_TP_CD, CRE_ID, CRE_DT) SELECT B.PKG_ID , B.PAR_BIZ_ID , B.BIZ_ID , R.USER_ID , 3101 AS AUTH_TP_CD , ? AS CRE_ID , ? AS CRE_DT FROM CM_USER_BIZ_ROLE R JOIN CM_ROLE_PERMISSION P ON R.ROLE_ID = P.ROLE_ID AND P.PERMISSION_CODE = 2000000 JOIN C_PKG_BIZ_MAP B ON R.BIZ_ID = B.BIZ_ID LEFT OUTER JOIN C_USER_BIZ_AUTH A ON B.PKG_ID = A.PKG_ID AND B.PAR_BIZ_ID = A.PAR_BIZ_ID AND B.BIZ_ID = A.BIZ_ID AND A.USER_ID = ? WHERE R.USER_ID = ? AND R.BIZ_ID = ? AND R.ROLE_ID = ? AND A.USER_ID IS NULL 
+[2022-09-21 15:57:38:446][DEBUG] ==> Parameters: 2(String), 20220921155738(String), 82(String), 82(String), 11(String), 0(String)
+[2022-09-21 15:57:38:459][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:38:459][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserRoleMap
+[2022-09-21 15:57:38:459][DEBUG] ==>  Preparing: SELECT DISTINCT BIZ_ID, BIZ_NM, ROLE_ID, ROLE_NAME FROM (SELECT B.BIZ_ID , B.BIZ_NM , R.ROLE_ID , R.ROLE_NAME FROM CM_USER_BIZ_ROLE U JOIN C_BIZ B ON U.BIZ_ID = B.BIZ_ID AND B.BIZ_ID > 0 AND B.DEL_YN = 'N' JOIN CM_ROLE R ON U.ROLE_ID = R.ROLE_ID WHERE U.USER_ID = ?) R ORDER BY R.BIZ_ID, R.ROLE_ID 
+[2022-09-21 15:57:38:459][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:38:461][DEBUG] <==      Total: 1
+[2022-09-21 15:57:44:620][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.deleteBizAuth
+[2022-09-21 15:57:44:621][DEBUG] ==>  Preparing: DELETE FROM C_USER_BIZ_AUTH WHERE USER_ID = ? 
+[2022-09-21 15:57:44:621][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:44:627][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:44:627][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.deleteUserBizRole
+[2022-09-21 15:57:44:627][DEBUG] ==>  Preparing: DELETE FROM CM_USER_BIZ_ROLE WHERE USER_ID = ? 
+[2022-09-21 15:57:44:627][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:44:633][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:44:633][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.deleteUserGroup
+[2022-09-21 15:57:44:634][DEBUG] ==>  Preparing: DELETE FROM C_USER_GROUP_ROLE WHERE USER_ID = ? 
+[2022-09-21 15:57:44:634][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:44:640][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:44:640][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.deleteReportAuth
+[2022-09-21 15:57:44:640][DEBUG] ==>  Preparing: DELETE FROM CM_DC_REPORT_AUTH WHERE AUTH_ID = ? AND AUTH_TYPE = 'U' 
+[2022-09-21 15:57:44:640][DEBUG] ==> Parameters: 82(String)
+[2022-09-21 15:57:44:647][DEBUG] <==    Updates: 66
+[2022-09-21 15:57:44:647][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.deleteUser
+[2022-09-21 15:57:44:647][DEBUG] ==>  Preparing: UPDATE C_USER SET DEL_YN = 'Y' , DEL_ID = ? , DEL_DT = ? WHERE USER_ID = ? 
+[2022-09-21 15:57:44:647][DEBUG] ==> Parameters: 2(String), 20220921155744(String), 82(String)
+[2022-09-21 15:57:44:651][DEBUG] <==    Updates: 1
+[2022-09-21 15:57:44:651][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserInfo
+[2022-09-21 15:57:44:651][DEBUG] ==>  Preparing: SELECT U.USER_ID , U.USER_NM , U.LOGIN_ID , U.DEP_ID , D.DEP_TITLE , U.POSITION_CODE , PN.DISPLAY_NM AS POSITION_NAME , U.EMAIL , U.CELL_PHONE , U.ACTIVE_YN , U.DEL_YN , U.CRE_DT , U.LAST_USE_DATE , U.LAST_USE_IP , UM.MULTI_LOGIN , UM.AUTH_IP , UM.API_KEY , UM.API_KEY_EXP_DT FROM C_USER U LEFT OUTER JOIN CM_USER_META UM ON U.USER_ID = UM.USER_ID JOIN C_DEP_INFO D ON U.DEP_ID = D.DEP_ID LEFT OUTER JOIN C_CD_NM PN ON U.POSITION_CODE = PN.CD_ID AND PN.LANG_CD = ? WHERE U.USER_ID = ? ORDER BY LOGIN_ID 
+[2022-09-21 15:57:44:651][DEBUG] ==> Parameters: ko-KR(String), 82(String)
+[2022-09-21 15:57:44:654][DEBUG] <==      Total: 1
+[2022-09-21 15:57:44:746][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserGroupMap
+[2022-09-21 15:57:44:746][DEBUG] ==>  Preparing: SELECT G.GROUP_ID , G.GROUP_NM FROM C_USER_GROUP_ROLE M JOIN C_GROUP G ON M.GROUP_ID = G.GROUP_ID WHERE M.USER_ID = ? ORDER BY G.GROUP_NM 
+[2022-09-21 15:57:44:746][DEBUG] ==> Parameters: 2(String)
+[2022-09-21 15:57:44:747][DEBUG] ==>    QueryID: com.gtone.cmadmin.dao.user.UserDao.getUserRoleMap
+[2022-09-21 15:57:44:747][DEBUG] ==>  Preparing: SELECT DISTINCT BIZ_ID, BIZ_NM, ROLE_ID, ROLE_NAME FROM (SELECT B.BIZ_ID , B.BIZ_NM , R.ROLE_ID , R.ROLE_NAME FROM CM_USER_BIZ_ROLE U JOIN C_BIZ B ON U.BIZ_ID = B.BIZ_ID AND B.BIZ_ID > 0 AND B.DEL_YN = 'N' JOIN CM_ROLE R ON U.ROLE_ID = R.ROLE_ID WHERE U.USER_ID = ?) R ORDER BY R.BIZ_ID, R.ROLE_ID 
+[2022-09-21 15:57:44:747][DEBUG] ==> Parameters: 2(String)
+[2022-09-21 15:57:44:748][DEBUG] <==      Total: 1
+[2022-09-21 15:57:44:768][DEBUG] <==      Total: 28
