@@ -337,7 +337,6 @@ var i18nJapanese = {
 		parent_action: "該当アクションの下位にアクションが生成されます。",
 		parent_category: "該当カテゴリの下に対象が生成されます。",
 		passive_mode: "パッシブモード使用、<BR>もし’FALSE'で設定すると、アクティブモードを使用します。",
-		password_change_period: "パスワードの変更周期を設定します。<BR>日単位で01~360,000の間の値を指定できます。<BR>0を設定した場合、パスワード変更周期を適用しません。",
 		password_failures_allowed: "パスワード失敗許可数を設定します。<BR>回数として1~30間の値を指定することができます。",
 		password_failures_limit_time: "パスワードの許容回数を超過すると、次のアクセスまで制限される時間を意味します。<BR>秒単位で0~86,400の間の値を指定することができます。<BR>0を設定した場合、無制限接続が制限されます。",
 		password_salt_encryption_applied: "パスワードの暗号化時、saltを適用するか選択します。",
