@@ -82,6 +82,7 @@ SELECT U.USER_ID
     ON U.DEP_ID = D.DEP_ID
        LEFT OUTER JOIN C_CD_NM PN
     ON U.POSITION_CODE = PN.CD_ID
+    AND PN.LANG_CD = #{lang}
     ]]><if test="delyn != null"><![CDATA[
  WHERE DEL_YN = #{delyn}
     ]]></if><![CDATA[
@@ -264,7 +265,6 @@ SELECT N.CD_ID
 
     <select id="getUserGroupMap" resultMap="groupResultMap"><![CDATA[
 SELECT G.GROUP_ID
-     , G.GROUP_NM 
   FROM C_USER_GROUP_ROLE M
        JOIN C_GROUP G
     ON M.GROUP_ID = G.GROUP_ID
@@ -340,7 +340,6 @@ DELETE FROM C_USER_BIZ_AUTH
     <update id="updateUserPwd"><![CDATA[
 UPDATE C_USER
    SET USER_PWD = #{pwd}
-     , UPD_DT = #{pwddt, jdbcType=INTEGER}
  WHERE USER_ID = #{uid, jdbcType=INTEGER}
     ]]></update>
     <update id="updateUserPwdUpdDt"><![CDATA[
