@@ -337,7 +337,6 @@ var i18nKorean = {
 		parent_action: "해당 액션의 하위로 액션이 생성됩니다.",
 		parent_category: "해당 카테고리 하위에 대상이 생성됩니다.",
 		passive_mode: "패시드 모드 사용 여부.<BR>만약 'False'를 설정하면, 액티브 모드를 사용합니다.",
-		password_change_period: "비밀번호 변경 주기를 설정합니다.<BR>일 단위로 0 ~ 360,000 사이의 값을 지정할 수 있습니다.<BR>0을 설정한 경우 비밀번호 변경주기를 적용하지 않습니다.",
 		password_failures_allowed: "비밀번호 실패 허용 횟수를 설정합니다.<BR>횟수로 1 ~ 30 사이의 값을 지정할 수 있습니다.",
 		password_failures_limit_time: "비밀번호 허용 횟수 초과시 다음 접속까지 제한되는 시간을 의미합니다.<BR>초 단위로 0 ~ 86,400 사이의 값을 지정할 수 있습니다.<BR>0을 설정한 경우 무기한 접속이 제한됩니다.",
 		password_salt_encryption_applied: "비밀번호 암호화 시 salt를 적용할지 선택합니다.",
