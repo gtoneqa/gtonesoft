@@ -82,7 +82,6 @@ SELECT U.USER_ID
     ON U.DEP_ID = D.DEP_ID
        LEFT OUTER JOIN C_CD_NM PN
     ON U.POSITION_CODE = PN.CD_ID
-   AND PN.LANG_CD = #{lang}
     ]]><if test="delyn != null"><![CDATA[
  WHERE DEL_YN = #{delyn}
     ]]></if><![CDATA[
