@@ -68,7 +68,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * number of Named Parameter is delivered in the form of 'parameter=value'.
  * However, defined query statement includes block comments and line comments
  * includes ��:�� or ��&��.</li>
- * </ul> ojjamkj
+ * </ul> ojjamkj-addd
  * 
  * @author SoYon Lim
  */
